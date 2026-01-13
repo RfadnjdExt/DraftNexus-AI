@@ -211,11 +211,11 @@ def generate_synthetic_samples(id_to_stats, counters, synergies, n_samples=20000
         
         score = 0
         
-        # Scoring Logic (Lightweight)
+        # Scoring Logic (Refined)
         cand_counters = counters.get(candidate, {'strong':[], 'weak':[]})
         for e in enemy_ids:
-            if e in cand_counters.get('strong', []): score += 5
-            if e in cand_counters.get('weak', []): score -= 5
+            if e in cand_counters.get('strong', []): score += 6 # Strong Counter Bonus
+            if e in cand_counters.get('weak', []): score -= 6   # Hard Countered Penalty
             
         cand_syn = synergies.get(candidate, {'best':[], 'worst':[]})
         for a in ally_ids:
@@ -224,17 +224,32 @@ def generate_synthetic_samples(id_to_stats, counters, synergies, n_samples=20000
             
         # Role Penalty
         role_counts = {1:0, 2:0, 3:0, 4:0, 5:0}
-        for h in ally_ids:
-            p = id_to_stats[h]['Primary_Lane']
-            role_counts[p] = role_counts.get(p, 0) + 1
+        dtype_counts = {1:0, 2:0} # 1:Physical, 2:Magic
         
-        c_p = id_to_stats[candidate]['Primary_Lane']
-        if role_counts.get(c_p, 0) > 0 and id_to_stats[candidate].get('Secondary_Lane', 0) == 0:
+        for h in ally_ids:
+            stats = id_to_stats[h]
+            p = stats['Primary_Lane']
+            d = stats.get('Damage_Type', 1) 
+            role_counts[p] = role_counts.get(p, 0) + 1
+            if d in dtype_counts: dtype_counts[d] += 1
+        
+        # Lane Constraint
+        c_stats = id_to_stats[candidate]
+        c_p = c_stats['Primary_Lane']
+        c_d = c_stats.get('Damage_Type', 1)
+        
+        # If lane is taken and hero is not flexible (Sec Lane == 0) -> Penalize
+        if role_counts.get(c_p, 0) > 0 and c_stats.get('Secondary_Lane', 0) == 0:
             score -= 10
             
-        # Label
-        if score >= 3: add_sample(ally_ids, enemy_ids, candidate, 1, 2.0)
-        elif score <= -3: add_sample(ally_ids, enemy_ids, candidate, 0, 2.0)
+        # Damage Type Balance (Don't let team be full Physical or full Magic)
+        if c_d in dtype_counts and dtype_counts[c_d] >= 3:
+            score -= 4 # Soft penalty for unbalance
+            
+        # Label Rules
+        # Stricter threshold for "Good Pick" to ensure high quality
+        if score >= 4: add_sample(ally_ids, enemy_ids, candidate, 1, 3.0)
+        elif score <= -4: add_sample(ally_ids, enemy_ids, candidate, 0, 3.0)
         
         # Soft label for "noise" logic (occasionally add neutral samples if we need volume, but skip for now to keep signal clear)
 

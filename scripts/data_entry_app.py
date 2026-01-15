@@ -176,11 +176,8 @@ if os.path.exists(LOGS_PATH):
             if ':' in pick:
                 h_name, role = pick.split(':')
                 icon_url = get_hero_icon(h_name)
-                # Icon Image with Tooltip
-                html_parts.append(f'''
-                    <img src="{icon_url}" title="{h_name} ({role})" 
-                         style="width: 32px; height: 32px; border-radius: 50%; border: 1px solid #555;">
-                ''')
+                # Icon Image with Tooltip - Ensure no indentation in the string
+                html_parts.append(f'<img src="{icon_url}" title="{h_name} ({role})" style="width: 32px; height: 32px; border-radius: 50%; border: 1px solid #555;">')
         html_parts.append('</div>')
         return "".join(html_parts)
 
@@ -191,25 +188,26 @@ if os.path.exists(LOGS_PATH):
             win_icons = render_team_html(row['Winning_Team'], "left")
             lose_icons = render_team_html(row['Losing_Team'], "right")
             
+            # Using st.write(..., unsafe_allow_html=True) is safer for complex HTML, or keep st.markdown but be careful with indentation
             st.markdown(f"""
-            <div style="background-color: #1E1E1E; padding: 15px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #333;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                    <h4 style="margin: 0;">Match #{row['Match_ID']}</h4>
-                    <span style="background-color: #333; padding: 5px 10px; border-radius: 5px; font-size: 0.8em;">
-                        {row.get('Day', 'Unknown')} | {row.get('Game', 'Unknown')} | ⏱️ {row['Game_Duration']}
-                    </span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <div style="width: 48%; color: #4CAF50;">
-                        <strong>🏆 WIN: {row.get('Winner_Name', 'Unknown')}</strong><br>
-                        {win_icons}
-                    </div>
-                    <div style="width: 48%; color: #F44336; text-align: right;">
-                        <strong>❌ LOSE: {row.get('Loser_Name', 'Unknown')}</strong><br>
-                        {lose_icons}
-                    </div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
+<div style="background-color: #1E1E1E; padding: 15px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #333;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h4 style="margin: 0;">Match #{row['Match_ID']}</h4>
+        <span style="background-color: #333; padding: 5px 10px; border-radius: 5px; font-size: 0.8em;">
+            {row.get('Day', 'Unknown')} | {row.get('Game', 'Unknown')} | ⏱️ {row['Game_Duration']}
+        </span>
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+        <div style="width: 48%; color: #4CAF50;">
+            <strong>🏆 WIN: {row.get('Winner_Name', 'Unknown')}</strong><br>
+            {win_icons}
+        </div>
+        <div style="width: 48%; color: #F44336; text-align: right;">
+            <strong>❌ LOSE: {row.get('Loser_Name', 'Unknown')}</strong><br>
+            {lose_icons}
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 else:
     st.info("No logs found yet.")

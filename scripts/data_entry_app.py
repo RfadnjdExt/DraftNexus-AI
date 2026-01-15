@@ -57,6 +57,8 @@ def get_hero_icon(hero_name):
 
 
 # --- Form Interface ---
+roles = ['Exp', 'Jungle', 'Mid', 'Roam', 'Gold']
+
 with st.form("match_entry_form"):
     st.subheader("Match Metadata")
     c1, c2, c3, c4 = st.columns(4)

@@ -64,6 +64,18 @@ with st.form("match_entry_form"):
             if h:
                 lose_heroes.append(f"{h}:{role}")
 
+    # Display Next ID
+    if os.path.exists(LOGS_PATH):
+        try:
+            df = pd.read_csv(LOGS_PATH)
+            next_id = df['Match_ID'].max() + 1
+        except:
+            next_id = 1
+    else:
+        next_id = 1
+        
+    st.info(f"🆔 Next Match ID will be: **{next_id}**")
+
     submitted = st.form_submit_button("💾 Save Match Log", type="primary")
 
     if submitted:
@@ -78,10 +90,13 @@ with st.form("match_entry_form"):
             win_str = "|".join(win_heroes)
             lose_str = "|".join(lose_heroes)
             
-            # Determine New Match ID
+            # Determine New Match ID (Recalculate to be safe)
             if os.path.exists(LOGS_PATH):
                 df_current = pd.read_csv(LOGS_PATH)
-                new_id = df_current['Match_ID'].max() + 1
+                if not df_current.empty:
+                    new_id = df_current['Match_ID'].max() + 1
+                else:
+                    new_id = 1
             else:
                 new_id = 1
                 df_current = pd.DataFrame(columns=['Match_ID', 'Winning_Team', 'Losing_Team', 'Game_Duration', 'Winner_Name', 'Loser_Name', 'Day', 'Game'])
@@ -106,12 +121,14 @@ with st.form("match_entry_form"):
             df_updated.to_csv(LOGS_PATH, index=False)
             
             st.toast(f"✅ Match {new_id} Saved Successfully!")
+            st.rerun() # Refresh to show new log immediately
 
 # --- Preview Section ---
 st.divider()
-st.subheader("📊 Recent Logs")
+st.subheader("📊 All Match Logs")
 if os.path.exists(LOGS_PATH):
     df_logs = pd.read_csv(LOGS_PATH)
-    st.dataframe(df_logs.sort_values('Match_ID', ascending=False).head(10), use_container_width=True)
+    # Show all logs, sorted by latest first
+    st.dataframe(df_logs.sort_values('Match_ID', ascending=False), use_container_width=True)
 else:
     st.info("No logs found yet.")

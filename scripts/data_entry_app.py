@@ -57,6 +57,7 @@ def get_hero_icon(hero_name):
 
 
 # --- Form Interface ---
+heroes = load_heroes()
 roles = ['Exp', 'Jungle', 'Mid', 'Roam', 'Gold']
 
 with st.form("match_entry_form"):

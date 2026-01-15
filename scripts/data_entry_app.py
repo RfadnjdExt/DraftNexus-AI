@@ -21,12 +21,40 @@ def load_heroes():
     df = pd.read_csv(BASE_STATS_PATH)
     return sorted(df['Hero_Name'].unique().tolist())
 
-# Load Data
-heroes = load_heroes()
-roles = ['Exp', 'Jungle', 'Mid', 'Roam', 'Gold']
+import json
 
-st.title("🛡️ DraftNexus Match Logger")
-st.markdown("Easily add new match logs to the dataset.")
+# ... (Previous imports)
+
+# Load Hero Icons from Map (using contoh_response.json as source for now)
+ICON_MAP = {}
+EXAMPLE_JSON_PATH = os.path.join(PROJECT_ROOT, 'examples', 'contoh_response.json')
+if os.path.exists(EXAMPLE_JSON_PATH):
+    try:
+        with open(EXAMPLE_JSON_PATH, 'r') as f:
+            data = json.load(f)
+            # Extract main hero
+            if 'data' in data and 'records' in data['data']:
+                for rec in data['data']['records']:
+                    d = rec.get('data', {})
+                    # Main Hero
+                    mh = d.get('main_hero', {}).get('data', {})
+                    if mh.get('name') and mh.get('head'):
+                        ICON_MAP[mh['name']] = mh['head']
+                    
+                    # Sub Heroes
+                    for sub in d.get('sub_hero', []):
+                        sh = sub.get('hero', {}).get('data', {})
+                        if sh.get('name') and sh.get('head'):
+                            ICON_MAP[sh['name']] = sh['head']
+    except Exception as e:
+        print(f"Error loading icons: {e}")
+
+def get_hero_icon(hero_name):
+    # Return mapped icon or a default placeholder
+    return ICON_MAP.get(hero_name, "https://static.wikia.nocookie.net/mobile-legends/images/0/05/Empty_Icon.png/revision/latest?cb=20171025063000")
+
+# ... (Rest of format logic)
+
 
 # --- Form Interface ---
 with st.form("match_entry_form"):
@@ -132,9 +160,34 @@ if os.path.exists(LOGS_PATH):
     # Sort latest first
     df_logs = df_logs.sort_values('Match_ID', ascending=False)
     
+    # Helper to render a team list with icons
+    def render_team_html(team_str, align="left"):
+        html_parts = []
+        if pd.isna(team_str): return ""
+        picks = team_str.split('|')
+        
+        # Flex container for icons
+        html_parts.append(f'<div style="display: flex; gap: 5px; flex-wrap: wrap; justify-content: {align}; margin-top: 5px;">')
+        
+        for pick in picks:
+            if ':' in pick:
+                h_name, role = pick.split(':')
+                icon_url = get_hero_icon(h_name)
+                # Icon Image with Tooltip
+                html_parts.append(f'''
+                    <img src="{icon_url}" title="{h_name} ({role})" 
+                         style="width: 32px; height: 32px; border-radius: 50%; border: 1px solid #555;">
+                ''')
+        html_parts.append('</div>')
+        return "".join(html_parts)
+
     for index, row in df_logs.iterrows():
         with st.container():
             # Card Styling
+            
+            win_icons = render_team_html(row['Winning_Team'], "left")
+            lose_icons = render_team_html(row['Losing_Team'], "right")
+            
             st.markdown(f"""
             <div style="background-color: #1E1E1E; padding: 15px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #333;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
@@ -146,11 +199,11 @@ if os.path.exists(LOGS_PATH):
                 <div style="display: flex; justify-content: space-between;">
                     <div style="width: 48%; color: #4CAF50;">
                         <strong>🏆 WIN: {row.get('Winner_Name', 'Unknown')}</strong><br>
-                        <small>{row['Winning_Team'].replace('|', ', ')}</small>
+                        {win_icons}
                     </div>
                     <div style="width: 48%; color: #F44336; text-align: right;">
                         <strong>❌ LOSE: {row.get('Loser_Name', 'Unknown')}</strong><br>
-                        <small>{row['Losing_Team'].replace('|', ', ')}</small>
+                        {lose_icons}
                     </div>
                 </div>
             </div>

@@ -4,8 +4,8 @@ import seaborn as sns
 import os
 
 # Paths
-DATA_DIR = './data'
-OUTPUT_DIR = './analysis_plots'
+DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data'))
+OUTPUT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../analysis_plots'))
 BASE_STATS_PATH = os.path.join(DATA_DIR, 'hero_base_stats.csv')
 META_STATS_PATH = os.path.join(DATA_DIR, 'hero_meta_performance.csv')
 

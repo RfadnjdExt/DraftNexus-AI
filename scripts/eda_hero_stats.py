@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 # Define paths
-DATA_DIR = './data'
+DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data'))
 BASE_STATS_PATH = os.path.join(DATA_DIR, 'hero_base_stats.csv')
 META_PERF_PATH = os.path.join(DATA_DIR, 'hero_meta_performance.csv')
 

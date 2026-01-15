@@ -8,7 +8,7 @@ from sklearn.metrics import classification_report, accuracy_score
 import joblib
 
 # Paths
-DATA_DIR = './data'
+DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data'))
 TRAIN_DATA_PATH = os.path.join(DATA_DIR, 'training_data_hybrid.csv')
 BASE_STATS_PATH = os.path.join(DATA_DIR, 'hero_base_stats.csv')
 META_STATS_PATH = os.path.join(DATA_DIR, 'hero_meta_performance.csv')

@@ -6,7 +6,7 @@ import sys
 import argparse
 
 # Paths
-DATA_DIR = './data'
+DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data'))
 BASE_STATS_PATH = os.path.join(DATA_DIR, 'hero_base_stats.csv')
 META_STATS_PATH = os.path.join(DATA_DIR, 'hero_meta_performance.csv')
 MODEL_PATH = os.path.join(DATA_DIR, 'draft_model_rf.pkl')

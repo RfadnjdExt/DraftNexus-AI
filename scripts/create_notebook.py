@@ -7,7 +7,7 @@ source1 = [
     "import pandas as pd\n",
     "import matplotlib.pyplot as plt\n",
     "import seaborn as sns\n",
-    "import os\n",
+    "import os\\n",
     "\n",
     "%matplotlib inline\n",
     "\n",
@@ -16,7 +16,7 @@ source1 = [
     "plt.rcParams['font.family'] = 'sans-serif'\n",
     "plt.rcParams['figure.facecolor'] = '#f0f0f0'\n",
     "\n",
-    "DATA_DIR = './data'\n",
+    "DATA_DIR = '../data'\\n",
     "BASE_STATS_PATH = os.path.join(DATA_DIR, 'hero_base_stats.csv')\n",
     "META_STATS_PATH = os.path.join(DATA_DIR, 'hero_meta_performance.csv')"
 ]
@@ -171,7 +171,7 @@ notebook = {
     "nbformat_minor": 4
 }
 
-with open('visualize_analytics.ipynb', 'w') as f:
+with open(os.path.join(os.path.dirname(__file__), '../notebooks/visualize_analytics.ipynb'), 'w') as f:
     json.dump(notebook, f, indent=1)
     
 print("Enhanced Professional Notebook created.")

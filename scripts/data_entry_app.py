@@ -125,10 +125,35 @@ with st.form("match_entry_form"):
 
 # --- Preview Section ---
 st.divider()
-st.subheader("📊 All Match Logs")
+st.subheader("📊 Match History")
+
 if os.path.exists(LOGS_PATH):
     df_logs = pd.read_csv(LOGS_PATH)
-    # Show all logs, sorted by latest first
-    st.dataframe(df_logs.sort_values('Match_ID', ascending=False), use_container_width=True)
+    # Sort latest first
+    df_logs = df_logs.sort_values('Match_ID', ascending=False)
+    
+    for index, row in df_logs.iterrows():
+        with st.container():
+            # Card Styling
+            st.markdown(f"""
+            <div style="background-color: #1E1E1E; padding: 15px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #333;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h4 style="margin: 0;">Match #{row['Match_ID']}</h4>
+                    <span style="background-color: #333; padding: 5px 10px; border-radius: 5px; font-size: 0.8em;">
+                        {row.get('Day', 'Unknown')} | {row.get('Game', 'Unknown')} | ⏱️ {row['Game_Duration']}
+                    </span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="width: 48%; color: #4CAF50;">
+                        <strong>🏆 WIN: {row.get('Winner_Name', 'Unknown')}</strong><br>
+                        <small>{row['Winning_Team'].replace('|', ', ')}</small>
+                    </div>
+                    <div style="width: 48%; color: #F44336; text-align: right;">
+                        <strong>❌ LOSE: {row.get('Loser_Name', 'Unknown')}</strong><br>
+                        <small>{row['Losing_Team'].replace('|', ', ')}</small>
+                    </div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
 else:
     st.info("No logs found yet.")

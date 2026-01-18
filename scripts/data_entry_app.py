@@ -72,13 +72,156 @@ def get_real_match_heroes():
         print(f"Error reading match logs: {e}")
         return set()
 
+def predict_hero_role(hero_name):
+    """
+    Predicts the most likely role for a hero based on:
+    1. Real Match Logs (Frequency)
+    2. Base Stats (Primary Lane)
+    """
+    if not hero_name: return None
+    
+    # 1. Check Real Logs
+    role_counts = {}
+    if os.path.exists(LOGS_PATH):
+        try:
+            df = pd.read_csv(LOGS_PATH)
+            for col in ['Winning_Team', 'Losing_Team']:
+                if col in df.columns:
+                    series = df[col].dropna().astype(str)
+                    for val in series:
+                        for pick in val.split('|'):
+                            if ':' in pick:
+                                h, r = pick.split(':')
+                                if h == hero_name:
+                                    role_counts[r] = role_counts.get(r, 0) + 1
+        except: pass
+        
+    if role_counts:
+        # Return most frequent role
+        return max(role_counts, key=role_counts.get)
+        
+    # 2. Fallback to Base Stats
+    # Map ID -> Primary Lane Int -> String
+    # We need a reverse map from name -> ID first
+    # DF_BASE is already loaded
+    try:
+        row = DF_BASE[DF_BASE['Hero_Name'] == hero_name].iloc[0]
+        lane_int = row['Primary_Lane']
+        role_map = {1: 'Exp', 2: 'Mid', 3: 'Roam', 4: 'Jungle', 5: 'Gold'}
+        return role_map.get(lane_int, 'Flex')
+    except:
+        return 'Flex'
+
+def predict_team_roles(hero_names):
+    """
+    Assigns roles to a list of heroes optimizing for conflict resolution.
+    E.g. If Granger (Gold) and Freya (Exp/Gold) are picked, Granger gets Gold, Freya gets Exp.
+    """
+    if not hero_names: return {}
+    
+    # 1. Gather Candidates for each hero
+    # format: { 'HeroName': {'Preferred': 'Gold', 'Options': ['Gold', 'Exp'], 'Score': 10} }
+    hero_data = {}
+    
+    role_map_int = {1: 'Exp', 2: 'Mid', 3: 'Roam', 4: 'Jungle', 5: 'Gold'}
+    
+    # Pre-scan logs for frequency "cache"
+    log_freqs = {} # (Hero, Role) -> count
+    if os.path.exists(LOGS_PATH):
+        try:
+            df = pd.read_csv(LOGS_PATH)
+            for col in ['Winning_Team', 'Losing_Team']:
+                if col in df.columns:
+                    series = df[col].dropna().astype(str)
+                    for val in series:
+                        for pick in val.split('|'):
+                            if ':' in pick:
+                                h, r = pick.split(':')
+                                log_freqs[(h, r)] = log_freqs.get((h, r), 0) + 1
+        except: pass
+
+    for h in hero_names:
+        if not h: continue
+        options = set()
+        preferred = None
+        max_freq = 0
+        
+        # A. From Logs
+        h_log_roles = [r for (name, r) in log_freqs.keys() if name == h]
+        for r in h_log_roles:
+            freq = log_freqs[(h, r)]
+            options.add(r)
+            if freq > max_freq:
+                max_freq = freq
+                preferred = r
+                
+        # B. From Base Stats
+        try:
+            row = DF_BASE[DF_BASE['Hero_Name'] == h].iloc[0]
+            p_lane = role_map_int.get(row['Primary_Lane'])
+            s_lane = role_map_int.get(row['Secondary_Lane']) # If exists
+            
+            if p_lane: 
+                options.add(p_lane)
+                if not preferred: preferred = p_lane
+            if s_lane: options.add(s_lane)
+        except: pass
+        
+        # Fallback
+        if not options: options = {'Exp', 'Mid', 'Roam', 'Jungle', 'Gold'} # All valid if unknown
+        if not preferred: preferred = list(options)[0]
+        
+        # Scarcity Score: Fewer options = Higher Priority
+        # Also boost if hero has VERY high pick rate in one role
+        score = 10 - len(options) 
+        
+        hero_data[h] = {
+            'preferred': preferred,
+            'options': list(options),
+            'priority': score
+        }
+        
+    # 2. Assignment (Greedy by Priority)
+    # Sort heroes by priority (Highest first)
+    sorted_heroes = sorted(hero_data.keys(), key=lambda x: hero_data[x]['priority'], reverse=True)
+    
+    assignments = {}
+    filled_roles = set()
+    
+    # Pass 1: Try Preferred
+    delayed = []
+    
+    for h in sorted_heroes:
+        pref = hero_data[h]['preferred']
+        if pref not in filled_roles:
+            assignments[h] = pref
+            filled_roles.add(pref)
+        else:
+            delayed.append(h)
+            
+    # Pass 2: Try Options
+    for h in delayed:
+        assigned = False
+        # Try other options
+        for opt in hero_data[h]['options']:
+            if opt not in filled_roles:
+                assignments[h] = opt
+                filled_roles.add(opt)
+                assigned = True
+                break
+        
+        if not assigned:
+            # Force Assign Preferred (Duplicate)
+            assignments[h] = hero_data[h]['preferred']
+            
+    return assignments
+
 def get_recommendations(allies, enemies, banned=None, restrict_pool=False):
     # Prepare Data
     if DF_BASE.empty or CLF is None: return []
     if banned is None: banned = []
     
     # Merge for stats
-    # Check key columns
     if 'Hero_ID' not in DF_META.columns or 'Hero_ID' not in DF_BASE.columns:
         return []
         
@@ -87,7 +230,8 @@ def get_recommendations(allies, enemies, banned=None, restrict_pool=False):
     # Mappings
     name_to_id = {name: pid for name, pid in zip(df_stats['Hero_Name'], df_stats['Hero_ID'])}
     id_to_name = {pid: name for name, pid in name_to_id.items()}
-    
+    lane_int_map = {'Exp':1, 'Mid':2, 'Roam':3, 'Jungle':4, 'Gold':5}
+
     # IDs
     ally_ids = [name_to_id[n] for n in allies if n in name_to_id]
     enemy_ids = [name_to_id[n] for n in enemies if n in name_to_id]
@@ -120,13 +264,18 @@ def get_recommendations(allies, enemies, banned=None, restrict_pool=False):
     ally_vec = np.zeros(n_heroes)
     enemy_vec = np.zeros(n_heroes)
     roles_vec = [0.0] * 5
-    lane_map = df_stats.set_index('Hero_ID')['Primary_Lane'].to_dict()
     
+    # Use Predicted Roles for Allies to populate roles_vec
+    # This gives the model context on what roles we ALREADY have
+    for name in allies:
+        predicted_role = predict_hero_role(name)
+        if predicted_role in lane_int_map:
+            l_idx = lane_int_map[predicted_role] - 1
+            roles_vec[l_idx] += 1.0
+
+    # Populate One-Hot Vectors
     for h in ally_ids:
         if h in id_to_idx: ally_vec[id_to_idx[h]] = 1
-        if h in lane_map:
-            l = lane_map[h]
-            if 1 <= l <= 5: roles_vec[l-1] += 1.0
             
     for h in enemy_ids:
         if h in id_to_idx: enemy_vec[id_to_idx[h]] = 1
@@ -155,10 +304,11 @@ def get_recommendations(allies, enemies, banned=None, restrict_pool=False):
     
     # Result Format
     results = []
-    role_map = {1: 'Exp', 2: 'Mid', 3: 'Roam', 4: 'Jungle', 5: 'Gold'}
+    role_map_int = {1: 'Exp', 2: 'Mid', 3: 'Roam', 4: 'Jungle', 5: 'Gold'}
     for i, pid in enumerate(valid_cands):
         name = id_to_name[pid]
-        role = role_map.get(stats_map[pid]['Primary_Lane'], 'Flex')
+        # Candidate's natural role
+        role = role_map_int.get(stats_map[pid]['Primary_Lane'], 'Flex')
         icon = get_hero_icon(name)
         results.append((name, probs[i], role, icon))
         
@@ -289,7 +439,6 @@ def render_recommender():
     # --- BANNED HEROES INPUTS ---
     with st.expander("🚫 Banned Heroes (10 Slots)", expanded=True):
         banned = []
-        # 10 slots, maybe 2 rows of 5
         b_cols1 = st.columns(5)
         b_cols2 = st.columns(5)
         
@@ -305,32 +454,59 @@ def render_recommender():
     # --- ENEMY TEAM INPUTS ---
     st.error("### ⚔️ Enemy Team (Flex)")
     enemies = []
+    
+    # 1. Gather current selections from state to run batch prediction
+    current_enemies = []
+    for i in range(5):
+        key = f"enemy_p_{i}"
+        if key in st.session_state and st.session_state[key]:
+            current_enemies.append(st.session_state[key])
+            
+    enemy_role_map = predict_team_roles(current_enemies)
+    
     e_cols = st.columns(5)
     for i in range(5):
         with e_cols[i]:
             # Filter options: Exclude banned?
             avail_heroes = [h for h in heroes if h not in banned]
             h = st.selectbox(f"Enemy {i+1}", [""] + avail_heroes, key=f"enemy_p_{i}")
-            if h: enemies.append(h)
+            if h: 
+                enemies.append(h)
+                # DISPLAY PREDICTED ROLE
+                pred_role = enemy_role_map.get(h, "Unknown")
+                st.caption(f"Detected: **{pred_role}**")
     
-    # --- ALLY TEAM INPUTS ---
-    st.success("### 🛡️ Allied Team (Role Based)")
+    # --- ALLY TEAM INPUTS (UPDATED: FLEX & SMART) ---
+    st.success("### 🛡️ Allied Team (Flex & Predict)")
     allies = []
     filled_roles = set()
-    a_cols = st.columns(5)
-    # Fixed Roles order
-    draft_roles = ['Exp', 'Jungle', 'Mid', 'Roam', 'Gold']
     
-    for i, role in enumerate(draft_roles):
+    # 1. Gather current selections
+    current_allies = []
+    for i in range(5):
+        key = f"ally_p_{i}"
+        if key in st.session_state and st.session_state[key]:
+            current_allies.append(st.session_state[key])
+            
+    ally_role_map = predict_team_roles(current_allies)
+    
+    a_cols = st.columns(5)
+    
+    for i in range(5):
         with a_cols[i]:
             # Filter: Exclude enemies + banned
-            # Combining exclude lists
-            exclude = set(enemies + banned)
+            exclude = set(enemies + banned + allies) 
             avail_heroes = [h for h in heroes if h not in exclude]
-            h = st.selectbox(f"Ally {role}", [""] + avail_heroes, key=f"ally_p_{role}")
+            
+            h = st.selectbox(f"Ally {i+1}", [""] + avail_heroes, key=f"ally_p_{i}")
+            
             if h: 
                 allies.append(h)
-                filled_roles.add(role)
+                # DISPLAY PREDICTED ROLE
+                pred_role = ally_role_map.get(h, "Unknown")
+                if pred_role != "Unknown":
+                    filled_roles.add(pred_role)
+                st.caption(f"Detected: **{pred_role}**")
 
     # --- CONTROLS ---
     st.divider()
@@ -348,7 +524,7 @@ def render_recommender():
                 st.subheader("✨ Best Pick per Role")
                 cols = st.columns(5)
                 
-                # Setup Display Roles (same as input)
+                # Setup Display Roles
                 display_roles = ['Exp', 'Jungle', 'Mid', 'Roam', 'Gold']
                 
                 # Group best recommendations by role
@@ -372,7 +548,7 @@ def render_recommender():
                         
                         if hero_data:
                             name, score, role, icon = hero_data
-                            border_color = "#888" if is_filled else "#FF4B4B" # Grey out border for alts
+                            border_color = "#888" if is_filled else "#FF4B4B" 
                             opacity = "0.7" if is_filled else "1.0"
                             
                             st.markdown(f"""

@@ -35,3 +35,17 @@ Match_ID,Winning_Team,Losing_Team,Game_Duration,Winner_Name,Loser_Name,Day,Game
 34,Lapu-Lapu:Exp|Fredrinn:Jungle|Zhuxin:Mid|Chip:Roam|Granger:Gold,Uranus:Exp|Guinevere:Jungle|Yve:Mid|Chou:Roam|Karrie:Gold,17:55,RORA,TS,5,2
 35,Yu Zhong:Exp|Yi Sun-shin:Jungle|Valentina:Mid|Gatotkaca:Roam|Sora:Gold,Uranus:Exp|Nolan:Jungle|Pharsa:Mid|Kalea:Roam|Granger:Gold,21:36,TL,YG,5,1
 36,Gloo:Exp|Yi Sun-shin:Jungle|Zhuxin:Mid|Hilda:Roam|Granger:Gold,Arlott:Exp|Guinevere:Jungle|Pharsa:Mid|Chou:Roam|Claude:Gold,15:31,TL,YG,5,2
+37,Lapu-Lapu:Exp|Fredrinn:Jungle|Zetian:Mid|Chou:Roam|Claude:Gold,Yu Zhong:Exp|Hayabusa:Jungle|Pharsa:Mid|Hylos:Roam|Harith:Gold,17:10,CFU,Z1,6,1
+38,Yu Zhong:Exp|Guinevere:Jungle|Pharsa:Mid|Chou:Roam|Claude:Gold,Lapu-Lapu:Exp|Lancelot:Jungle|Kadita:Mid|Hylos:Roam|Karrie:Gold,23:46,CFU,Z1,6,2
+39,Gloo:Exp|Joy:Jungle|Yve:Mid|Chou:Roam|Karrie:Gold,Arlott:Exp|Baxia:Jungle|Pharsa:Mid|Hilda:Roam|Granger:Gold,16:21,CG,BSE,6,1
+40,Esmeralda:Exp|Lancelot:Jungle|Lunox:Mid|Hylos:Roam|Karrie:Gold,Cici:Exp|Nolan:Jungle|Yve:Mid|Hilda:Roam|Granger:Gold,17:07,BSE,CG,6,2
+41,Hilda:Exp|Yi Sun-shin:Jungle|Odette:Mid|Chou:Roam|Karrie:Gold,Uranus:Exp|Lancelot:Jungle|Yve:Mid|Chip:Roam|Harith:Gold,18:32,CG,BSE,6,3
+42,Yu Zhong:Exp|Yi Sun-shin:Jungle|Faramis:Mid|Gatotkaca:Roam|Cici:Gold,Arlott:Exp|Baxia:Jungle|Pharsa:Mid|Kalea:Roam|Karrie:Gold,11:27,ONIC,EVIL,6,1
+43,Arlott:Exp|Yi Sun-shin:Jungle|Yve:Mid|Chip:Roam|Esmeralda:Gold,Uranus:Exp|Leomord:Jungle|Zhuxin:Mid|Chou:Roam|Karrie:Gold,12:43,ONIC,EVIL,6,2
+44,Uranus:Exp|Nolan:Jungle|Zhuxin:Mid|Chou:Roam|Freya:Gold,Phoveus:Exp|Yi Sun-shin:Jungle|Pharsa:Mid|Hilda:Roam|Claude:Gold,13:21,YG,CG,7,1
+45,Sora:Exp|Baxia:Jungle|Yve:Mid|Kalea:Roam|Claude:Gold,Esmeralda:Exp|Yi Sun-shin:Jungle|Cecilion:Mid|Chou:Roam|Harith:Gold,23:36,YG,CG,7,2
+46,Valentina:Exp|Yi Sun-shin:Jungle|Lunox:Mid|Kalea:Roam|Cici:Gold,Sora:Exp|Leomord:Jungle|Faramis:Mid|Chou:Roam|Granger:Gold,13:58,TS,CFU,7,1
+47,Lapu-Lapu:Exp|Lancelot:Jungle|Valentina:Mid|Chou:Roam|Granger:Gold,Yu Zhong:Exp|Joy:Jungle|Pharsa:Mid|Grock:Roam|Karrie:Gold,14:02,TS,CFU,7,2
+48,Yu Zhong:Exp|Hayabusa:Jungle|Zhuxin:Mid|Chou:Roam|Lunox:Gold,Esmeralda:Exp|Baxia:Jungle|Kimmy:Mid|Hilda:Roam|Claude:Gold,11:52,ONIC,FLCN,7,1
+49,Gloo:Exp|Hayabusa:Jungle|Zhuxin:Mid|Chou:Roam|Cici:Gold,Yu Zhong:Exp|Guinevere:Jungle|Lylia:Mid|Hylos:Roam|Karrie:Gold,23:07,FLCN,ONIC,7,2
+50,Yu Zhong:Exp|Joy:Jungle|Kimmy:Mid|Kalea:Roam|Granger:Gold,Phoveus:Exp|Baxia:Jungle|Valentina:Mid|Chou:Roam|Moskov:Gold,12:08,ONIC,FLCN,7,3

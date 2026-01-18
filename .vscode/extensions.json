@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "mechatroner.rainbow-csv",
+    "ms-toolsai.datawrangler",
+    "donjayamanne.python-environment-manager",
+    "njpwerner.autodocstring",
+    "oderwat.indent-rainbow"
+  ]
+}

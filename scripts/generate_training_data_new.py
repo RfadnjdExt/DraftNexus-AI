@@ -61,15 +61,18 @@ def load_data():
 
     return name_to_id, id_to_stats, id_to_meta, counters, synergies
 
-def parse_real_logs(name_to_id, id_to_meta):
+def parse_real_logs(name_to_id, id_to_meta, df_override=None):
     """Parses user provided match logs"""
     real_samples = []
 
-    if not os.path.exists(REAL_LOGS_PATH):
+    if df_override is not None:
+        df_real = df_override
+    elif not os.path.exists(REAL_LOGS_PATH):
         print("No real logs found, skipping real data ingestion.")
         return []
-
-    df_real = pd.read_csv(REAL_LOGS_PATH)
+    else:
+        df_real = pd.read_csv(REAL_LOGS_PATH)
+        
     print(f"Loading {len(df_real)} real matches...")
 
     for _, row in df_real.iterrows():
@@ -273,6 +276,14 @@ def main():
 
     except Exception as e:
         print(f"Failed to generate data: {e}")
+
+def generate_data(df_logs_override=None):
+    """External API for data generation"""
+    name_to_id, id_to_stats, id_to_meta, counters, synergies = load_data()
+    real_data = parse_real_logs(name_to_id, id_to_meta, df_override=df_logs_override)
+    synth_data = generate_synthetic_samples(id_to_stats, counters, synergies, n_samples=5000) # Lower sample count for speed in comparison
+    all_data = real_data + synth_data
+    return pd.DataFrame(all_data)
 
 if __name__ == "__main__":
     main()

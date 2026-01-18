@@ -315,20 +315,90 @@ def get_recommendations(allies, enemies, banned=None, restrict_pool=False):
     results.sort(key=lambda x: x[1], reverse=True)
     return results
 
+# --- HELPER: GAME AUTO-INCREMENT ---
+def calculate_next_game_number(team_a, team_b):
+    if not team_a or not team_b: return "1"
+    
+    if os.path.exists(LOGS_PATH):
+        try:
+            df = pd.read_csv(LOGS_PATH)
+            # Normalize names for comparison (optional, but good practice)
+            ta = team_a.strip()
+            tb = team_b.strip()
+            
+            # Filter matches involving THESE two teams
+            mask = (
+                ((df['Winner_Name'] == ta) & (df['Loser_Name'] == tb)) |
+                ((df['Winner_Name'] == tb) & (df['Loser_Name'] == ta))
+            )
+            relevant_games = df[mask]
+            
+            if relevant_games.empty:
+                return "1"
+                
+            # Extract numbers from "Game X"
+            # Assumes format "Game <Number>"
+            import re
+            max_num = 0
+            for val in relevant_games['Game'].astype(str):
+                match = re.search(r'\d+', val)
+                if match:
+                    num = int(match.group())
+                    if num > max_num: max_num = num
+            
+            return f"{max_num + 1}"
+            
+        except Exception as e:
+            print(f"Error calculating game number: {e}")
+            return "1"
+    return "1"
+
+def swap_teams():
+    w = st.session_state.get('input_winner', '')
+    l = st.session_state.get('input_loser', '')
+    st.session_state['input_winner'] = l
+    st.session_state['input_loser'] = w
+
 # --- UI COMPONENTS ---
 def render_logger():
     st.header("📝 Match Logger")
     roles = ['Exp', 'Jungle', 'Mid', 'Roam', 'Gold']
     
-    with st.form("match_entry_form"):
-        st.subheader("Match Metadata")
-        c1, c2, c3, c4 = st.columns(4)
-        with c1: winner_name = st.text_input("Winner Team Name")
-        with c2: loser_name = st.text_input("Loser Team Name")
-        with c3: day = st.text_input("Day (e.g. Day 1)")
-        with c4: game_num = st.text_input("Game (e.g. Game 1)")
+    
+    # --- MATCH METADATA (Interactive - Outside Form) ---
+    st.subheader("Match Metadata")
+    
+    with st.container():
+        
+        # --- Stage Select ---
+        stage = st.selectbox("Stage", ["Knockout Stage", "Swiss Stage"], index=0)
+        
+        
+        c1, c2, c3, c4 = st.columns([2, 0.5, 2, 1])
+        
+        # Initialize session state if not present (prevents key errors on first run)
+        if 'input_winner' not in st.session_state: st.session_state['input_winner'] = ""
+        if 'input_loser' not in st.session_state: st.session_state['input_loser'] = ""
+
+        with c1: 
+            winner_name = st.text_input("Winner Team Name", key="input_winner")
+        with c2: 
+            st.write("") # Spacer
+            st.write("")
+            st.button("🔄", on_click=swap_teams, help="Swap Winner and Loser")
+        with c3: 
+            loser_name = st.text_input("Loser Team Name", key="input_loser")
+        with c4: 
+            day = st.text_input("Day (e.g. Day 1)")
+            
+        # Preview Next Game Number
+        next_game_val = calculate_next_game_number(st.session_state.input_winner, st.session_state.input_loser)
+        st.caption(f"🎮 Next Game: **{next_game_val}** (Auto-Detected)")
+            
         duration = st.text_input("Duration (mm:ss)", value="15:00")
 
+    # --- HERO SELECTION (Form - Batch Submission) ---
+    with st.form("match_entry_form"):
         st.divider()
         col_win, col_lose = st.columns(2)
         with col_win:
@@ -365,10 +435,14 @@ def render_logger():
                 # Save Logic
                 if os.path.exists(LOGS_PATH):
                     df_current = pd.read_csv(LOGS_PATH)
+                    # Migration: If Stage missing, add it
+                    if 'Stage' not in df_current.columns:
+                        df_current['Stage'] = 'Swiss Stage'
+                    
                     new_id = df_current['Match_ID'].max() + 1 if not df_current.empty else 1
                 else:
                     new_id = 1
-                    df_current = pd.DataFrame(columns=['Match_ID', 'Winning_Team', 'Losing_Team', 'Game_Duration', 'Winner_Name', 'Loser_Name', 'Day', 'Game'])
+                    df_current = pd.DataFrame(columns=['Match_ID', 'Winning_Team', 'Losing_Team', 'Game_Duration', 'Winner_Name', 'Loser_Name', 'Day', 'Game', 'Stage'])
 
                 new_entry = {
                     'Match_ID': new_id,
@@ -378,7 +452,8 @@ def render_logger():
                     'Winner_Name': winner_name,
                     'Loser_Name': loser_name,
                     'Day': day,
-                    'Game': game_num
+                    'Game': next_game_val,
+                    'Stage': stage
                 }
                 
                 df_updated = pd.concat([df_current, pd.DataFrame([new_entry])], ignore_index=True)
@@ -396,7 +471,7 @@ def render_logger():
                 st.markdown(f"""
                 <div style="background-color: #1E1E1E; padding: 15px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #333;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <h4 style="margin: 0;">Match #{row['Match_ID']}</h4>
+                        <h4 style="margin: 0;">Match #{row['Match_ID']} <span style="font-size: 0.8em; color: #888;">({row.get('Stage', 'Swiss Stage')})</span></h4>
                         <span style="background-color: #333; padding: 5px 10px; border-radius: 5px; font-size: 0.8em;">
                             {row.get('Day', 'Unknown')} | {row.get('Game', 'Unknown')} | ⏱️ {row['Game_Duration']}
                         </span>

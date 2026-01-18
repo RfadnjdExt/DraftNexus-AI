@@ -14,11 +14,16 @@ BASE_STATS_PATH = os.path.join(DATA_DIR, 'hero_base_stats.csv')
 META_STATS_PATH = os.path.join(DATA_DIR, 'hero_meta_performance.csv')
 MODEL_OUTPUT_PATH = os.path.join(DATA_DIR, 'draft_model_rf.pkl')
 
-def load_data():
-    if not os.path.exists(TRAIN_DATA_PATH) or not os.path.exists(BASE_STATS_PATH) or not os.path.exists(META_STATS_PATH):
+def load_data(df_train_override=None):
+    if not os.path.exists(BASE_STATS_PATH) or not os.path.exists(META_STATS_PATH):
         raise FileNotFoundError("Data files missing.")
 
-    df_train = pd.read_csv(TRAIN_DATA_PATH)
+    if df_train_override is not None:
+        df_train = df_train_override
+    else:
+        if not os.path.exists(TRAIN_DATA_PATH): raise FileNotFoundError("Train data missing")
+        df_train = pd.read_csv(TRAIN_DATA_PATH)
+        
     df_base = pd.read_csv(BASE_STATS_PATH)
     df_meta = pd.read_csv(META_STATS_PATH)
 
@@ -108,41 +113,36 @@ def preprocess_features(df_train, df_stats):
 
     return np.array(X), y, weights, stat_cols
 
-def train_model():
-    df_train, df_stats = load_data()
+def train_model(df_train_override=None, save_model=True):
+    df_train, df_stats = load_data(df_train_override)
 
     X, y, sample_weights, stat_feature_names = preprocess_features(df_train, df_stats)
-
-    print(f"Feature Vector Size: {X.shape[1]}")
 
     # Split
     X_train, X_test, y_train, y_test, w_train, w_test = train_test_split(X, y, sample_weights, test_size=0.2, random_state=42)
 
-    print("Training Random Forest...")
     clf = RandomForestClassifier(n_estimators=100, max_depth=15, class_weight='balanced', random_state=42)
     clf.fit(X_train, y_train, sample_weight=w_train)
 
     # Evaluate
-    print("\n--- Model Evaluation ---")
     y_pred = clf.predict(X_test)
-    print(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}")
-    print("\nClassification Report:")
-    print(classification_report(y_test, y_pred))
+    acc = accuracy_score(y_test, y_pred)
+    report = classification_report(y_test, y_pred, output_dict=True)
 
-    # Feature Importance (Simplified)
-    # The first 131 are Allies, next 131 Enemies, last 7 are Candidate Stats
-    # Actually, we added roles_vec (5) in between
+    # Feature Importance
     importances = clf.feature_importances_
-
-    # Check Stat Importances
-    print("\n--- Candidate Stat Importance ---")
-    stat_imps = importances[-len(stat_feature_names):] 
-    for name, imp in zip(stat_feature_names, stat_imps):
-        print(f"{name}: {imp:.4f}")
-
+    
     # Save
-    joblib.dump(clf, MODEL_OUTPUT_PATH)
-    print(f"\nModel saved to {MODEL_OUTPUT_PATH}")
+    if save_model:
+        joblib.dump(clf, MODEL_OUTPUT_PATH)
+        print(f"Model saved to {MODEL_OUTPUT_PATH}")
+        
+    return {
+        'accuracy': acc,
+        'report': report,
+        'feature_importances': importances,
+        'stat_feature_names': stat_feature_names
+    }
 
 if __name__ == "__main__":
     train_model()

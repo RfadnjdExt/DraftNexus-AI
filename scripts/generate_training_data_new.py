@@ -92,7 +92,16 @@ def parse_real_logs(name_to_id, id_to_meta, df_override=None):
 
             win_ids = parse_team(win_str)
             lose_ids = parse_team(lose_str)
-            duration = float(row.get('Game_Duration', 15))
+            # Parse Duration
+            duration_str = str(row.get('Game_Duration', '15:00'))
+            if ':' in duration_str:
+                m, s = duration_str.split(':')
+                duration = int(m) + (int(s)/60.0)
+            else:
+                try:
+                    duration = float(duration_str)
+                except:
+                    duration = 15.0
 
             if len(win_ids) == 5 and len(lose_ids) == 5:
                 for i in range(5):

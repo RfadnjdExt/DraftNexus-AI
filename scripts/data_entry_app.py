@@ -129,7 +129,7 @@ def predict_team_roles(hero_names):
     log_freqs = {} # (Hero, Role) -> count
     if os.path.exists(LOGS_PATH):
         try:
-            df = pd.read_csv(LOGS_PATH)
+            df = pd.read_csv(LOGS_PATH, dtype={'Day': str})
             for col in ['Winning_Team', 'Losing_Team']:
                 if col in df.columns:
                     series = df[col].dropna().astype(str)
@@ -371,7 +371,7 @@ def render_logger():
     with st.container():
         
         # --- Stage Select ---
-        stage = st.selectbox("Stage", ["Knockout Stage", "Swiss Stage"], index=0)
+        stage = st.selectbox("Stage", ["Knockout Stage", "Swiss Stage", "Grand Finals"], index=0)
         
         
         c1, c2, c3, c4 = st.columns([2, 0.5, 2, 1])
@@ -434,7 +434,7 @@ def render_logger():
             else:
                 # Save Logic
                 if os.path.exists(LOGS_PATH):
-                    df_current = pd.read_csv(LOGS_PATH)
+                    df_current = pd.read_csv(LOGS_PATH, dtype={'Day': str})
                     # Migration: If Stage missing, add it
                     if 'Stage' not in df_current.columns:
                         df_current['Stage'] = 'Swiss Stage'
@@ -465,7 +465,7 @@ def render_logger():
     st.divider()
     st.subheader("📊 Match History")
     if os.path.exists(LOGS_PATH):
-        df_logs = pd.read_csv(LOGS_PATH).sort_values('Match_ID', ascending=False)
+        df_logs = pd.read_csv(LOGS_PATH, dtype={'Day': str}).sort_values('Match_ID', ascending=False)
         for index, row in df_logs.iterrows():
             with st.container():
                 st.markdown(f"""

@@ -58,3 +58,45 @@ Match_ID,Winning_Team,Losing_Team,Game_Duration,Winner_Name,Loser_Name,Day,Game,
 57,Phoveus:Exp|Yi Sun-shin:Jungle|Pharsa:Mid|Badang:Roam|Sora:Gold,Lapu-Lapu:Exp|Hayabusa:Jungle|Kagura:Mid|Hilda:Roam|Granger:Gold,17:36,SRG,TS,1,2,Knockout Stage
 58,Sora:Exp|Guinevere:Jungle|Pharsa:Mid|Grock:Roam|Cici:Gold,Yu Zhong:Exp|Joy:Jungle|Kimmy:Mid|Hilda:Roam|Esmeralda:Gold,18:06,AE,ONIC,1,1,Knockout Stage
 59,Uranus:Exp|Fanny:Jungle|Lylia:Mid|Kalea:Roam|Claude:Gold,Alice:Exp|Baxia:Jungle|Zhuxin:Mid|Helcurt:Roam|Moskov:Gold,23:39,AE,ONIC,1,2,Knockout Stage
+60,Cici:Exp|Harley:Jungle|Zetian:Mid|Gatotkaca:Roam|Sora:Gold,Uranus:Exp|Yi Sun-shin:Jungle|Valentina:Mid|Kalea:Roam|X.Borg:Gold,18:22,AUR,SRG,2,1,Knockout Stage
+61,Phoveus:Exp|Yi Sun-shin:Jungle|Lunox:Mid|Chou:Roam|Cici:Gold,Esmeralda:Exp|Lancelot:Jungle|Pharsa:Mid|Hilda:Roam|Lancelot:Gold,24:20,SRG,AUR,2,2,Knockout Stage
+62,Uranus:Exp|Leomord:Jungle|Lunox:Mid|Grock:Roam|Freya:Gold,Esmeralda:Exp|Yi Sun-shin:Jungle|Pharsa:Mid|Kalea:Roam|X.Borg:Gold,10:40,AUR,SRG,2,3,Knockout Stage
+63,Esmeralda:Exp|Leomord:Jungle|Pharsa:Mid|Chou:Roam|Sora:Gold,Terizla:Exp|Joy:Jungle|Kimmy:Mid|Gatotkaca:Roam|Freya:Gold,16:39,SRG,AUR,2,4,Knockout Stage
+64,Alice:Exp|Leomord:Jungle|Pharsa:Mid|Chou:Roam|Claude:Gold,Yu Zhong:Exp|Guinevere:Jungle|Novaria:Mid|Grock:Roam|Harith:Gold,16:26,SRG,AUR,2,5,Knockout Stage
+65,Lapu-Lapu:Exp|Yi Sun-shin:Jungle|Pharsa:Mid|Chou:Roam|Freya:Gold,Sora:Exp|Leomord:Jungle|Kimmy:Mid|Guinevere:Roam|Minsitthar:Gold,18:25,RORA,AE,2,1,Knockout Stage
+66,Yu Zhong:Exp|Leomord:Jungle|Yve:Mid|Hilda:Roam|Granger:Gold,Alice:Exp|Yi Sun-shin:Jungle|Kimmy:Mid|Chou:Roam|Harith:Gold,13:50,AE,RORA,2,2,Knockout Stage
+67,Lapu-Lapu:Exp|Fredrinn:Jungle|Zhuxin:Mid|Khaleed:Roam|Harith:Gold,Sora:Exp|Yi Sun-shin:Jungle|Yve:Mid|Hylos:Roam|Claude:Gold,17:09,RORA,AE,2,3,Knockout Stage
+68,Sora:Exp|Leomord:Jungle|Pharsa:Mid|Hylos:Roam|Claude:Gold,Lapu-Lapu:Exp|Fanny:Jungle|Zhuxin:Mid|Chou:Roam|Granger:Gold,17:52,RORA,AE,2,4,Knockout Stage
+69,Esmeralda:Exp|Leomord:Jungle|Yve:Mid|Kalea:Roam|Valentina:Gold,Alice:Exp|Harley:Jungle|Pharsa:Mid|Hilda:Roam|Sora:Gold,17:30,TS,YG,3,1,Knockout Stage
+70,Arlott:Exp|Joy:Jungle|Zhuxin:Mid|Khaleed:Roam|Freya:Gold,Phoveus:Exp|Leomord:Jungle|Kimmy:Mid|Hilda:Roam|Cici:Gold,12:29,TS,YG,3,2,Knockout Stage
+71,Lapu-Lapu:Exp|Leomord:Jungle|Valentina:Mid|Grock:Roam|Sora:Gold,Alice:Exp|Yi Sun-shin:Jungle|Pharsa:Mid|Chou:Roam|Harith:Gold,38:05,TS,YG,3,3,Knockout Stage
+72,Sora:Exp|Lancelot:Jungle|Pharsa:Mid|Chou:Roam|Esmeralda:Gold,Alice:Exp|Yi Sun-shin:Jungle|Valentina:Mid|Hilda:Roam|Cici:Gold,15:53,TL,ONIC,3,1,Knockout Stage
+73,Lapu-Lapu:Exp|Yi Sun-shin:Jungle|Luo Yi:Mid|Hilda:Roam|Sora:Gold,Uranus:Exp|Leomord:Jungle|Pharsa:Mid|Chou:Roam|Freya:Gold,18:39,TL,ONIC,3,2,Knockout Stage
+74,Phoveus:Exp|Yi Sun-shin:Jungle|Lunox:Mid|Kalea:Roam|Ruby:Gold,Alice:Exp|Lancelot:Jungle|Pharsa:Mid|Hylos:Roam|Esmeralda:Gold,11:14,ONIC,TL,3,3,Knockout Stage
+75,Terizla:Exp|Fredrinn:Jungle|Pharsa:Mid|Gatotkaca:Roam|Claude:Gold,Esmeralda:Exp|Yi Sun-shin:Jungle|Luo Yi:Mid|Grock:Roam|Lunox:Gold,17:22,TL,ONIC,3,4,Knockout Stage
+76,Arlott:Exp|Baxia:Jungle|Lunox:Mid|Kalea:Roam|Claude:Gold,Lapu-Lapu:Exp|Leomord:Jungle|Pharsa:Mid|Chou:Roam|Freya:Gold,16:41,RORA,SRG,3,1,Knockout Stage
+77,Uranus:Exp|Leomord:Jungle|Zhuxin:Mid|Hylos:Roam|Freya:Gold,Esmeralda:Exp|Fanny:Jungle|Yve:Mid|Kalea:Roam|Claude:Gold,16:36,SRG,RORA,3,2,Knockout Stage
+78,Alice:Exp|Yi Sun-shin:Jungle|Zetian:Mid|Hilda:Roam|Harith:Gold,Lapu-Lapu:Exp|Leomord:Jungle|Yve:Mid|Chou:Roam|Granger:Gold,17:44,SRG,RORA,3,3,Knockout Stage
+79,Yu Zhong:Exp|Fredrinn:Jungle|Kimmy:Mid|Hylos:Roam|Granger:Gold,Gloo:Exp|Yi Sun-shin:Jungle|Pharsa:Mid|Chou:Roam|Harith:Gold,22:05,RORA,SRG,3,4,Knockout Stage
+80,Lapu-Lapu:Exp|Akai:Jungle|Kimmy:Mid|Khaleed:Roam|Harith:Gold,Cici:Exp|Leomord:Jungle|Zetian:Mid|Gatotkaca:Roam|Claude:Gold,23:33,RORA,SRG,3,5,Knockout Stage
+81,Uranus:Exp|Leomord:Jungle|Pharsa:Mid|Kalea:Roam|Claude:Gold,Yu Zhong:Exp|Yi Sun-shin:Jungle|Kimmy:Mid|Gatotkaca:Roam|Sora:Gold,10:54,AUR,TL,4,1,Knockout Stage
+82,Valentina:Exp|Yi Sun-shin:Jungle|Yve:Mid|Hilda:Roam|Sora:Gold,Lukas:Exp|Leomord:Jungle|Pharsa:Mid|Badang:Roam|Esmeralda:Gold,23:01,TL,AUR,4,2,Knockout Stage
+83,Arlott:Exp|Fredrinn:Jungle|Pharsa:Mid|Chou:Roam|Claude:Gold,Sora:Exp|Hayabusa:Jungle|Zetian:Mid|Kalea:Roam|Cici:Gold,14:08,TL,AUR,4,3,Knockout Stage
+84,Arlott:Exp|Hayabusa:Jungle|Zhuxin:Mid|Khaleed:Roam|Claude:Gold,Sora:Exp|Harley:Jungle|Yve:Mid|Kaja:Roam|Cici:Gold,18:24,TL,AUR,4,4,Knockout Stage
+85,Alice:Exp|Hayabusa:Jungle|Zhuxin:Mid|Khaleed:Roam|Freya:Gold,Sora:Exp|Guinevere:Jungle|Yve:Mid|Gatotkaca:Roam|Esmeralda:Gold,24:46,TS,AE,4,1,Knockout Stage
+86,Phoveus:Exp|Yi Sun-shin:Jungle|Yve:Mid|Grock:Roam|Cici:Gold,Sora:Exp|Harley:Jungle|Kimmy:Mid|Khaleed:Roam|Freya:Gold,17:34,AE,TS,4,2,Knockout Stage
+87,Esmeralda:Exp|Suyou:Jungle|Yve:Mid|Chip:Roam|Freya:Gold,Arlott:Exp|Joy:Jungle|Zhuxin:Mid|Chou:Roam|Cici:Gold,11:52,AE,TS,4,3,Knockout Stage
+88,Cici:Exp|Fredrinn:Jungle|Pharsa:Mid|Hilda:Roam|Claude:Gold,Uranus:Exp|Leomord:Jungle|Zetian:Mid|Khaleed:Roam|Harith:Gold,12:14,AE,TS,4,4,Knockout Stage
+89,Uranus:Exp|Joy:Jungle|Kagura:Mid|Kalea:Roam|Freya:Gold,Khaleed:Exp|Baxia:Jungle|Pharsa:Mid|Tigreal:Roam|Claude:Gold,15:17,AE,TL,5,1,Knockout Stage
+90,Yu Zhong:Exp|Fredrinn:Jungle|Luo Yi:Mid|Chip:Roam|Claude:Gold,Esmeralda:Exp|Yi Sun-shin:Jungle|Lylia:Mid|Chou:Roam|Freya:Gold,12:41,TL,AE,5,2,Knockout Stage
+91,Sora:Exp|Leomord:Jungle|Yve:Mid|Hilda:Roam|Granger:Gold,Yu Zhong:Exp|Guinevere:Jungle|Zhuxin:Mid|Khaleed:Roam|Claude:Gold,15:49,TL,AE,5,3,Knockout Stage
+92,Sora:Exp|Leomord:Jungle|Pharsa:Mid|Hylos:Roam|Freya:Gold,Cici:Exp|Akai:Jungle|Luo Yi:Mid|Kalea:Roam|Claude:Gold,12:19,AE,TL,5,4,Knockout Stage
+93,Cici:Exp|Uranus:Jungle|Zhuxin:Mid|Hilda:Roam|Claude:Gold,Yu Zhong:Exp|Leomord:Jungle|Yve:Mid|Khaleed:Roam|Esmeralda:Gold,20:02,AE,TL,5,5,Knockout Stage
+94,Cici:Exp|Leomord:Jungle|Yve:Mid|Gloo:Roam|Freya:Gold,Lapu-Lapu:Exp|Baxia:Jungle|Kimmy:Mid|Hilda:Roam|Claude:Gold,18:44,AE,SRG,5,1,Knockout Stage
+95,Valentina:Exp|Leomord:Jungle|Kimmy:Mid|Guinevere:Roam|Freya:Gold,Sora:Exp|Baxia:Jungle|Zetian:Mid|Hilda:Roam|Claude:Gold,12:19,AE,SRG,5,2,Knockout Stage
+96,Yu Zhong:Exp|Suyou:Jungle|Zhuxin:Mid|Hilda:Roam|Freya:Gold,Uranus:Exp|Leomord:Jungle|Yve:Mid|Chou:Roam|Esmeralda:Gold,14:39,SRG,AE,5,3,Knockout Stage
+97,Ruby:Exp|Fanny:Jungle|Pharsa:Mid|Hylos:Roam|Granger:Gold,Uranus:Exp|Joy:Jungle|Lylia:Mid|Hilda:Roam|Claude:Gold,22:08,AE,SRG,5,4,Knockout Stage
+98,Lapu-Lapu:Exp|Fredrinn:Jungle|Zhuxin:Mid|Hylos:Roam|Harith:Gold,Phoveus:Exp|Nolan:Jungle|Pharsa:Mid|Kalea:Roam|Claude:Gold,15:04,RORA,AE,,5,Grand Finals
+99,Sora:Exp|Leomord:Jungle|Pharsa:Mid|Grock:Roam|Claude:Gold,Yu Zhong:Exp|Suyou:Jungle|Zhuxin:Mid|Chou:Roam|Granger:Gold,16:05,RORA,AE,,6,Grand Finals
+100,Arlott:Exp|Fredrinn:Jungle|Zhuxin:Mid|Chou:Roam|Granger:Gold,Lapu-Lapu:Exp|Leomord:Jungle|Yve:Mid|Grock:Roam|Cici:Gold,10:55,RORA,AE,,7,Grand Finals
+101,Lapu-Lapu:Exp|Leomord:Jungle|Zetian:Mid|Khaleed:Roam|Harith:Gold,Phoveus:Exp|Yi Sun-shin:Jungle|Zhuxin:Mid|Kalea:Roam|Granger:Gold,11:24,RORA,AE,,8,Grand Finals

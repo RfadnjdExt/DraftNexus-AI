@@ -1,26 +1,26 @@
 # Model Training Comparison Report
-## Scenario: Swiss Stage vs Swiss + Knockout (Day 1)
+## Scenario: Swiss+Knockout vs Including Grand Finals
 
 ### Accuracy
-- **Baseline (Swiss Only)**: 0.6215
-- **With Knockout Day 1**: 0.6412
-- **Difference**: +0.0197
+- **Baseline (Swiss + Knockout)**: 0.6196
+- **With Grand Finals**: 0.6132
+- **Difference**: -0.0064
 
 ### Strategic Feature Importance Change
 Values indicate how much the model relies on specific hero attributes.
 
-| Feature            |   Importance (Swiss) |   Importance (Swiss+KO) |   Change |
-|:-------------------|---------------------:|------------------------:|---------:|
-| Late_Power         |               0.0648 |                  0.0678 |   0.0030 |
-| Mid_Power          |               0.0488 |                  0.0484 |  -0.0005 |
-| Early_Power        |               0.0405 |                  0.0442 |   0.0037 |
-| Difficulty         |               0.0219 |                  0.0218 |  -0.0001 |
-| Flex_Pick_Score    |               0.0194 |                  0.0190 |  -0.0003 |
-| Economy_Dependency |               0.0169 |                  0.0169 |   0.0000 |
-| Primary_Lane       |               0.0162 |                  0.0152 |  -0.0010 |
-| Hard_CC_Count      |               0.0167 |                  0.0143 |  -0.0024 |
-| Escape_Reliability |               0.0125 |                  0.0117 |  -0.0009 |
-| Damage_Type        |               0.0089 |                  0.0079 |  -0.0010 |
+| Feature            |   Importance (Baseline) |   Importance (With GF) |   Change |
+|:-------------------|------------------------:|-----------------------:|---------:|
+| Late_Power         |                  0.0644 |                 0.0647 |   0.0004 |
+| Mid_Power          |                  0.0446 |                 0.0514 |   0.0068 |
+| Early_Power        |                  0.0395 |                 0.0418 |   0.0023 |
+| Difficulty         |                  0.0208 |                 0.0204 |  -0.0004 |
+| Flex_Pick_Score    |                  0.0187 |                 0.0203 |   0.0015 |
+| Economy_Dependency |                  0.0180 |                 0.0181 |   0.0001 |
+| Primary_Lane       |                  0.0152 |                 0.0158 |   0.0005 |
+| Hard_CC_Count      |                  0.0145 |                 0.0136 |  -0.0008 |
+| Escape_Reliability |                  0.0125 |                 0.0122 |  -0.0003 |
+| Damage_Type        |                  0.0071 |                 0.0072 |   0.0001 |
 
 ### Interpretation
 - **Accuracy**: Higher is better. A significant drop might indicate the new data conflicts with old patterns (meta shift).

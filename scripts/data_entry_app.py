@@ -520,9 +520,24 @@ def render_team_html(team_str, align="left"):
     html_parts.append('</div>')
     return "".join(html_parts)
 
+def clear_draft_state():
+    # Clear Bans
+    for i in range(10):
+        if f"ban_p_{i}" in st.session_state: st.session_state[f"ban_p_{i}"] = ""
+    # Clear Enemies
+    for i in range(5):
+        if f"enemy_p_{i}" in st.session_state: st.session_state[f"enemy_p_{i}"] = ""
+    # Clear Allies
+    for i in range(5):
+        if f"ally_p_{i}" in st.session_state: st.session_state[f"ally_p_{i}"] = ""
 
 def render_recommender():
-    st.header("🔮 Draft Recommender")
+    c_head, c_btn = st.columns([6, 1])
+    with c_head:
+        st.header("🔮 Draft Recommender")
+    with c_btn:
+        st.write("") # Spacer for alignment
+        st.button("🗑️ Clear", on_click=clear_draft_state, help="Reset all selections", type="secondary")
     
     if CLF is None or DF_BASE.empty:
         st.error("Model or Stats not found. Please train the model first.")

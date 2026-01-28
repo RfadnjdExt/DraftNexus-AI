@@ -40,7 +40,7 @@ Hero_ID,Hero_Name,Primary_Lane,Secondary_Lane,Damage_Type,Scaling_Attribute,Spec
 93,Atlas,3,0,1,3,0,1,0,0,2,0,1,1,2,0.0,2,50,https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d974ac796678180ff8724b88e192898b.png
 92,Carmilla,3,0,2,2,0,1,0,0,1,2,1,1,2,1.0,1,40,https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6fb8f120dafdcbc1b5da2a2667016ad5.png
 91,Cecilion,2,0,2,2,1,0,0,0,0,2,2,3,2,0.0,2,70,https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_045399c265021d47da6512e6de20b64f.png
-90,Silvanna,1,0,1,1,0,0,0,0,1,1,1,2,2,1.0,2,60,https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5e7b297af7c6e32a420b897aa4998071.png
+90,Silvanna,1,4,1,1,0,0,0,0,1,1,1,2,2,1.0,2,60,https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5e7b297af7c6e32a420b897aa4998071.png
 89,Wanwan,5,0,1,1,1,0,0,0,0,1,2,5,2,0.0,3,90,https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_47/100_44bfa1dc44deb8d7620605faaa9ffae7.png
 88,Masha,1,0,1,3,0,0,0,0,0,1,1,2,2,1.0,3,70,https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c97a314dc260dfad1311512ddc03f936.png
 87,Baxia,4,0,1,3,0,0,0,1,1,2,1,4,2,0.0,1,80,https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_80e408203869ca99302af195ac4f756c.png

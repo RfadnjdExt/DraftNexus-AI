@@ -465,15 +465,32 @@ def render_logger():
     st.divider()
     st.subheader("📊 Match History")
     if os.path.exists(LOGS_PATH):
-        df_logs = pd.read_csv(LOGS_PATH, dtype={'Day': str}).sort_values('Match_ID', ascending=False)
+        df_logs = pd.read_csv(LOGS_PATH, dtype={'Day': str}).fillna('')
+        df_logs = df_logs.sort_values('Match_ID', ascending=False)
         for index, row in df_logs.iterrows():
+            # Build Metadata String
+            meta_parts = []
+            day_val = str(row.get('Day', '')).strip()
+            if day_val and day_val.lower() != 'nan':
+                if day_val.isdigit():
+                    meta_parts.append(f"Day {day_val}")
+                else:
+                    meta_parts.append(day_val)
+            
+            game_val = str(row.get('Game', '')).strip()
+            if game_val and game_val.lower() != 'nan':
+                 meta_parts.append(f"Game {game_val}" if str(game_val).isdigit() else game_val)
+            
+            meta_parts.append(f"⏱️ {row['Game_Duration']}")
+            meta_str = " | ".join(meta_parts)
+
             with st.container():
                 st.markdown(f"""
                 <div style="background-color: #1E1E1E; padding: 15px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #333;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                         <h4 style="margin: 0;">Match #{row['Match_ID']} <span style="font-size: 0.8em; color: #888;">({row.get('Stage', 'Swiss Stage')})</span></h4>
                         <span style="background-color: #333; padding: 5px 10px; border-radius: 5px; font-size: 0.8em;">
-                            {row.get('Day', 'Unknown')} | {row.get('Game', 'Unknown')} | ⏱️ {row['Game_Duration']}
+                            {meta_str}
                         </span>
                     </div>
                     <div style="display: flex; justify-content: space-between;">

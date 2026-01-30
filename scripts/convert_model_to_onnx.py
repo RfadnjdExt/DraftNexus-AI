@@ -28,8 +28,13 @@ def convert_model():
     # Size: [None, n_features] where None means batch size is variable
     initial_type = [('float_input', FloatTensorType([None, n_features]))]
 
-    print("Converting to ONNX...")
-    bg_node = convert_sklearn(clf, initial_types=initial_type)
+    print("Converting to ONNX (Opset 15, ZipMap=False)...")
+    # Target Opset 15 is safe for onnxruntime-android 1.16.0
+    # zipmap=False ensures probabilities are returned as a raw Float Tensor, not a ZipMap
+    bg_node = convert_sklearn(clf, initial_types=initial_type, target_opset=15, options={'zipmap': False})
+    
+    # Force IR Version 9 (Max supported by Android ORT 1.16 in some cases)
+    bg_node.ir_version = 9
 
     with open(ONNX_PATH, "wb") as f:
         f.write(bg_node.SerializeToString())

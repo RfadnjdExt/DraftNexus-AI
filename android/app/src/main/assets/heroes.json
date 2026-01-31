@@ -1,0 +1,2622 @@
+[
+  {
+    "id": 131,
+    "name": "Sora",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_40/100_8143d7bbd4318d7c699908e808de885e.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      0.0,
+      1.0,
+      3.0,
+      70.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 130,
+    "name": "Obsidia",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_9c3daef5625bfade5c4cb8a219845dd3.png",
+    "inRealLogs": false,
+    "stats": [
+      5.0,
+      1.0,
+      1.0,
+      0.0,
+      2.0,
+      80.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 129,
+    "name": "Zetian",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_90/100_8d965f05f84621a51f799aeb8fb5f4c4.png",
+    "inRealLogs": true,
+    "stats": [
+      2.0,
+      2.0,
+      2.0,
+      0.0,
+      2.0,
+      70.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 128,
+    "name": "Kalea",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_64/100_4f3d4649e301c76daf20bd8811f3095c.png",
+    "inRealLogs": true,
+    "stats": [
+      3.0,
+      2.0,
+      1.0,
+      0.0,
+      2.0,
+      50.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 127,
+    "name": "Lukas",
+    "primaryLane": 1,
+    "secondaryLane": 4,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_20/100_63040edd0cf15b815fcbbb8b2d08d7f7.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      2.0,
+      1.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 126,
+    "name": "Suyou",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_20/100_5e4ca70172332dde18bb1dc158ccc5c8.png",
+    "inRealLogs": true,
+    "stats": [
+      4.0,
+      1.0,
+      1.0,
+      0.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 125,
+    "name": "Zhuxin",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_595f85bc90df3889c711c6b1f02dc02d.png",
+    "inRealLogs": true,
+    "stats": [
+      2.0,
+      2.0,
+      1.0,
+      0.0,
+      2.0,
+      70.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 124,
+    "name": "Chip",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_79224d297f14377ad2eda8543432330d.png",
+    "inRealLogs": true,
+    "stats": [
+      3.0,
+      2.0,
+      1.0,
+      0.0,
+      2.0,
+      50.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 123,
+    "name": "Cici",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_60e3e11da30f404c77fff9e22d3bdc72.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 122,
+    "name": "Nolan",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9012ee9f73fbb4db4e1953e5fb5172e1.png",
+    "inRealLogs": true,
+    "stats": [
+      4.0,
+      1.0,
+      0.0,
+      0.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 121,
+    "name": "Ixia",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f070d82521ecd2e14d4ef3f25880830a.png",
+    "inRealLogs": false,
+    "stats": [
+      5.0,
+      1.0,
+      0.0,
+      1.5,
+      2.0,
+      80.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 120,
+    "name": "Arlott",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f666faa5ec6be5353f10dcd1d8997a42.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      2.0,
+      0.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 119,
+    "name": "Novaria",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_57eeea6d5bd8d21229de8df79751db9f.png",
+    "inRealLogs": true,
+    "stats": [
+      2.0,
+      2.0,
+      0.0,
+      0.0,
+      1.0,
+      60.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 118,
+    "name": "Joy",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d3a3a55c22000ae78732fed8cba2efef.png",
+    "inRealLogs": true,
+    "stats": [
+      4.0,
+      1.0,
+      0.0,
+      0.0,
+      3.0,
+      100.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 117,
+    "name": "Fredrinn",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_dea170bfd5f26c41fb04e5edf72afedb.png",
+    "inRealLogs": true,
+    "stats": [
+      4.0,
+      1.0,
+      3.0,
+      0.5,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 116,
+    "name": "Julian",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5511ddc0ad2789b525f32ef572b017eb.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      0.0,
+      0.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 115,
+    "name": "Xavier",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_df0a8dfc494f85ed9bbc4512cc1e5d3c.png",
+    "inRealLogs": false,
+    "stats": [
+      2.0,
+      2.0,
+      0.0,
+      0.0,
+      1.0,
+      60.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 114,
+    "name": "Melissa",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1fa7436301fea3f13fbcd4772051d22d.png",
+    "inRealLogs": false,
+    "stats": [
+      5.0,
+      1.0,
+      0.0,
+      1.0,
+      3.0,
+      90.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 113,
+    "name": "Yin",
+    "primaryLane": 4,
+    "secondaryLane": 1,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_ee1c12c84f49514a30e405fb5c617796.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      1.0,
+      1.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 112,
+    "name": "Floryn",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5a57b91e4914cf071a3849e352e530a5.png",
+    "inRealLogs": false,
+    "stats": [
+      3.0,
+      2.0,
+      1.0,
+      1.5,
+      0.0,
+      30.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 111,
+    "name": "Edith",
+    "primaryLane": 1,
+    "secondaryLane": 3,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_daab57918de01a6d5bb2ed6f45808a7e.png",
+    "inRealLogs": false,
+    "stats": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 110,
+    "name": "Valentina",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_24837021ec9d7aaf41b13fa55b6d13c9.png",
+    "inRealLogs": true,
+    "stats": [
+      2.0,
+      2.0,
+      0.0,
+      0.0,
+      2.0,
+      70.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 109,
+    "name": "Aamon",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b3a7602fe7ffd1e54bf8ea79ceadfa72.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      0.0,
+      2.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 108,
+    "name": "Aulus",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_40839957990dbb59a9e5ec4da9f85a8e.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      80.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 107,
+    "name": "Natan",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_da02742f59013365923b216420bc4082.png",
+    "inRealLogs": false,
+    "stats": [
+      5.0,
+      1.0,
+      0.0,
+      0.0,
+      2.0,
+      80.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 106,
+    "name": "Phoveus",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_06/100_af21c0dd8b5308c27974bff900803a9a.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 105,
+    "name": "Beatrix",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4687eca874feec9017b448a0b9110d65.png",
+    "inRealLogs": false,
+    "stats": [
+      5.0,
+      1.0,
+      0.0,
+      0.0,
+      2.0,
+      80.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 104,
+    "name": "Gloo",
+    "primaryLane": 1,
+    "secondaryLane": 3,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_642/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      0.0,
+      3.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 103,
+    "name": "Paquito",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e2b6d9c6d82b4a27f0bb2710c8ead3e8.png",
+    "inRealLogs": false,
+    "stats": [
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 102,
+    "name": "Mathilda",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_24d08ed788a9f5984bcf3b732ddcaf04.png",
+    "inRealLogs": true,
+    "stats": [
+      3.0,
+      2.0,
+      1.0,
+      0.0,
+      2.0,
+      50.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 101,
+    "name": "Yve",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_d9b0a1d92b1c4b3643d6332fd66aa8e6.png",
+    "inRealLogs": true,
+    "stats": [
+      2.0,
+      2.0,
+      1.0,
+      0.0,
+      1.0,
+      60.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 100,
+    "name": "Brody",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f18e45a9a4cb45897e1f614593ff4497.png",
+    "inRealLogs": false,
+    "stats": [
+      5.0,
+      1.0,
+      1.0,
+      0.0,
+      2.0,
+      80.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 99,
+    "name": "Barats",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6495be044c2d28106e200f6918391d54.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      1.0,
+      0.0,
+      3.0,
+      100.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 98,
+    "name": "Khaleed",
+    "primaryLane": 1,
+    "secondaryLane": 3,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_540a6a9d343842674ce002082366ec9d.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      1.0,
+      2.0,
+      3.0,
+      70.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 97,
+    "name": "Benedetta",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b4a5e537894bdc00787e80e4d3ada5dd.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      3.0,
+      70.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 96,
+    "name": "Luo Yi",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_103541726507f5ce102689f04fe215e8.png",
+    "inRealLogs": true,
+    "stats": [
+      2.0,
+      2.0,
+      1.0,
+      0.0,
+      2.0,
+      70.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 95,
+    "name": "Yu Zhong",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_9823ce4fe5eb89c0082b24f6d5ea67f6.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      2.0,
+      0.5,
+      3.0,
+      70.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 94,
+    "name": "Popol and Kupa",
+    "primaryLane": 4,
+    "secondaryLane": 5,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1acbb23b9a50f412104047a60eb18808.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      2.0,
+      2.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 93,
+    "name": "Atlas",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d974ac796678180ff8724b88e192898b.png",
+    "inRealLogs": false,
+    "stats": [
+      3.0,
+      1.0,
+      2.0,
+      0.0,
+      2.0,
+      50.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 92,
+    "name": "Carmilla",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6fb8f120dafdcbc1b5da2a2667016ad5.png",
+    "inRealLogs": false,
+    "stats": [
+      3.0,
+      2.0,
+      1.0,
+      1.0,
+      1.0,
+      40.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 91,
+    "name": "Cecilion",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_045399c265021d47da6512e6de20b64f.png",
+    "inRealLogs": true,
+    "stats": [
+      2.0,
+      2.0,
+      0.0,
+      0.0,
+      2.0,
+      70.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 90,
+    "name": "Silvanna",
+    "primaryLane": 1,
+    "secondaryLane": 4,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5e7b297af7c6e32a420b897aa4998071.png",
+    "inRealLogs": false,
+    "stats": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 89,
+    "name": "Wanwan",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_47/100_44bfa1dc44deb8d7620605faaa9ffae7.png",
+    "inRealLogs": false,
+    "stats": [
+      5.0,
+      1.0,
+      0.0,
+      0.0,
+      3.0,
+      90.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 88,
+    "name": "Masha",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c97a314dc260dfad1311512ddc03f936.png",
+    "inRealLogs": false,
+    "stats": [
+      1.0,
+      1.0,
+      0.0,
+      1.0,
+      3.0,
+      70.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 87,
+    "name": "Baxia",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_80e408203869ca99302af195ac4f756c.png",
+    "inRealLogs": true,
+    "stats": [
+      4.0,
+      1.0,
+      1.0,
+      0.0,
+      1.0,
+      80.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 86,
+    "name": "Lylia",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_706573f138055c3df3df94948b4f26bd.png",
+    "inRealLogs": true,
+    "stats": [
+      2.0,
+      2.0,
+      0.0,
+      0.0,
+      2.0,
+      70.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 85,
+    "name": "Dyrroth",
+    "primaryLane": 1,
+    "secondaryLane": 4,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_8ec13b59871b2862d773beac2d69fa3e.png",
+    "inRealLogs": false,
+    "stats": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 84,
+    "name": "Ling",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_017bade52b9fc94bbc12615de6d75c08.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      1.0,
+      0.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 83,
+    "name": "X.Borg",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 82,
+    "name": "Terizla",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c4bb270c28c7be663f57e993b0d6d3d8.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 81,
+    "name": "Esmeralda",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4661a64a2c6b724e7b67032fcbface27.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      2.0,
+      1.0,
+      0.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 80,
+    "name": "Guinevere",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_901bdd5d4432a2c0290dfc71df615a5a.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      3.0,
+      0.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 79,
+    "name": "Granger",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_22/100_a7729262d5b4abdc34ae5181e964c235.png",
+    "inRealLogs": true,
+    "stats": [
+      5.0,
+      1.0,
+      0.0,
+      0.5,
+      2.0,
+      80.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Khufra",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2fe99f4001211d18b3d2b95d0d3dc395.png",
+    "inRealLogs": false,
+    "stats": [
+      3.0,
+      1.0,
+      2.0,
+      0.0,
+      2.0,
+      50.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 77,
+    "name": "Badang",
+    "primaryLane": 1,
+    "secondaryLane": 3,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9fb1784545a48aef42241fc7a719c575.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      3.0,
+      70.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 76,
+    "name": "Faramis",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_04e575d648d7f7ac1174f4369595c3a2.png",
+    "inRealLogs": true,
+    "stats": [
+      2.0,
+      2.0,
+      0.0,
+      0.0,
+      1.0,
+      60.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 75,
+    "name": "Kadita",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_42b40ae7741d2eb81148c8f1e1ff614c.png",
+    "inRealLogs": true,
+    "stats": [
+      2.0,
+      2.0,
+      2.0,
+      1.0,
+      3.0,
+      80.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 74,
+    "name": "Minsitthar",
+    "primaryLane": 1,
+    "secondaryLane": 3,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c5d24a1dad6cef21de2698a4ed1d80ce.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      2.0,
+      2.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 73,
+    "name": "Harith",
+    "primaryLane": 5,
+    "secondaryLane": 2,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d228a823b477fdf6c458c829c2e62bcf.png",
+    "inRealLogs": true,
+    "stats": [
+      5.0,
+      2.0,
+      0.0,
+      1.0,
+      2.0,
+      80.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Thamuz",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_b5ad55e408b68acf6a86e7ff76f5f569.png",
+    "inRealLogs": false,
+    "stats": [
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Kimmy",
+    "primaryLane": 5,
+    "secondaryLane": 2,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_642/100_61295dfefd369004e5e4a7f4fc86647b.png",
+    "inRealLogs": true,
+    "stats": [
+      5.0,
+      2.0,
+      0.0,
+      1.0,
+      2.0,
+      80.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Belerick",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5f2a9eca0bafd4ed8dc39a93c771b3af.png",
+    "inRealLogs": false,
+    "stats": [
+      3.0,
+      1.0,
+      2.0,
+      0.0,
+      1.0,
+      40.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Hanzo",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_47/100_d2d28d2fcb060726fa27553920ca1a33.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      0.0,
+      1.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Lunox",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e162688afdcaf3f6498af30badfe31c5.png",
+    "inRealLogs": true,
+    "stats": [
+      2.0,
+      2.0,
+      0.0,
+      0.0,
+      2.0,
+      70.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Leomord",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_554cdf13a7587fe08c5deed60132c61c.png",
+    "inRealLogs": true,
+    "stats": [
+      4.0,
+      1.0,
+      0.0,
+      1.5,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Vale",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2a7a8d1531a1c4f8524880413535348d.png",
+    "inRealLogs": false,
+    "stats": [
+      2.0,
+      2.0,
+      1.0,
+      0.0,
+      1.0,
+      60.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Claude",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e1097b9d3e1d5e9f14600d32e8b18acd.png",
+    "inRealLogs": true,
+    "stats": [
+      5.0,
+      1.0,
+      0.0,
+      0.0,
+      2.0,
+      80.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Aldous",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0eb32187d08f14779585a8be53b83f01.png",
+    "inRealLogs": false,
+    "stats": [
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Selena",
+    "primaryLane": 2,
+    "secondaryLane": 3,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c3f967121519ae40509c5b2fdf52b19d.png",
+    "inRealLogs": true,
+    "stats": [
+      2.0,
+      2.0,
+      1.0,
+      1.0,
+      1.0,
+      60.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Kaja",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a23983833ad5bee7c83422c8ff727115.png",
+    "inRealLogs": true,
+    "stats": [
+      3.0,
+      2.0,
+      1.0,
+      1.0,
+      2.0,
+      50.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Chang'e",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_46cfe9c30e8a14f85b4d022496aca274.png",
+    "inRealLogs": false,
+    "stats": [
+      2.0,
+      2.0,
+      0.0,
+      0.0,
+      1.0,
+      60.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 60,
+    "name": "Hanabi",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8a9c1966feb34e85d7bdcc1ed01ffb5d.png",
+    "inRealLogs": false,
+    "stats": [
+      5.0,
+      1.0,
+      0.0,
+      1.0,
+      3.0,
+      90.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 59,
+    "name": "Uranus",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2e15a0a506aaecd9b3de40a8cc9f7ec7.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 58,
+    "name": "Martis",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_cc8124b0eb6ca22d950b000744d69fbf.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      1.0,
+      0.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 57,
+    "name": "Valir",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_bf16690876761b80822df90eb3320d69.png",
+    "inRealLogs": false,
+    "stats": [
+      2.0,
+      2.0,
+      1.0,
+      0.0,
+      2.0,
+      70.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Gusion",
+    "primaryLane": 4,
+    "secondaryLane": 2,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c6cd232de60da5372a7101a203e56554.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      0.0,
+      1.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Angela",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c7e0183956b2c2fd6d3fa0b18fe46917.png",
+    "inRealLogs": false,
+    "stats": [
+      3.0,
+      2.0,
+      0.0,
+      0.5,
+      2.0,
+      50.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Jawhead",
+    "primaryLane": 3,
+    "secondaryLane": 1,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_bd87c30b6c7de6ae3b5aa56162c48c8b.png",
+    "inRealLogs": false,
+    "stats": [
+      3.0,
+      1.0,
+      3.0,
+      1.0,
+      3.0,
+      60.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Lesley",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_08770893183018333f54a98e63c41ee3.png",
+    "inRealLogs": false,
+    "stats": [
+      5.0,
+      1.0,
+      0.0,
+      0.0,
+      2.0,
+      80.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Pharsa",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_10151d43910e62f7aa9ce08df481a20f.png",
+    "inRealLogs": true,
+    "stats": [
+      2.0,
+      2.0,
+      1.0,
+      0.0,
+      1.0,
+      60.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Helcurt",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6abf0c552b59b8ca4cbc1af3662ef176.png",
+    "inRealLogs": true,
+    "stats": [
+      4.0,
+      1.0,
+      0.0,
+      0.5,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Zhask",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d8f170087cb2d5b71bb22a0a4664a927.png",
+    "inRealLogs": false,
+    "stats": [
+      2.0,
+      2.0,
+      1.0,
+      0.0,
+      1.0,
+      60.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Hylos",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_195ad9af866afaab415ae23a6be13b45.png",
+    "inRealLogs": true,
+    "stats": [
+      3.0,
+      1.0,
+      1.0,
+      0.0,
+      1.0,
+      40.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Diggie",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
+    "inRealLogs": false,
+    "stats": [
+      3.0,
+      2.0,
+      0.0,
+      1.5,
+      1.0,
+      40.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Lancelot",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_dc4b821e49b904715172136017798da3.png",
+    "inRealLogs": true,
+    "stats": [
+      4.0,
+      1.0,
+      0.0,
+      0.5,
+      3.0,
+      100.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Odette",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_47/100_d9251718a8894546ba04cfa9ca68dedc.png",
+    "inRealLogs": true,
+    "stats": [
+      2.0,
+      2.0,
+      1.0,
+      0.0,
+      2.0,
+      70.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Argus",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0bd96658e5b8ec578226ea1622bd7231.png",
+    "inRealLogs": false,
+    "stats": [
+      1.0,
+      1.0,
+      2.0,
+      1.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Grock",
+    "primaryLane": 3,
+    "secondaryLane": 1,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_902/100_f8b8c8964d3202b7b762947ac96f1ed3.png",
+    "inRealLogs": true,
+    "stats": [
+      3.0,
+      1.0,
+      2.0,
+      1.0,
+      2.0,
+      50.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Irithel",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a7c51b517dbce49dac4e537bd4ab4f87.png",
+    "inRealLogs": false,
+    "stats": [
+      5.0,
+      1.0,
+      0.0,
+      1.0,
+      2.0,
+      80.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Harley",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3aa6964c07a70f9b125da447f320e1ac.png",
+    "inRealLogs": true,
+    "stats": [
+      4.0,
+      2.0,
+      0.0,
+      0.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Gatotkaca",
+    "primaryLane": 3,
+    "secondaryLane": 1,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_96f9dbbc096e0f0a28f9b9e587d06a9c.png",
+    "inRealLogs": true,
+    "stats": [
+      3.0,
+      1.0,
+      2.0,
+      1.0,
+      2.0,
+      50.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Karrie",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_294576f2bd0dcbcc9041031969d0eb09.png",
+    "inRealLogs": true,
+    "stats": [
+      5.0,
+      1.0,
+      0.0,
+      1.0,
+      2.0,
+      80.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Roger",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b40e578f13465b3ae99d0a9baac7ecc9.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      0.0,
+      0.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Vexana",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_743edd1702084c4ed247908d698bca77.png",
+    "inRealLogs": false,
+    "stats": [
+      2.0,
+      2.0,
+      1.0,
+      0.0,
+      0.0,
+      50.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Lapu-Lapu",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_28036c4584c914c5aad4d2feeafb2452.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Aurora",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f9b2be0150361018bb98f941b9667c42.png",
+    "inRealLogs": false,
+    "stats": [
+      2.0,
+      2.0,
+      3.0,
+      0.0,
+      1.0,
+      60.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Hilda",
+    "primaryLane": 3,
+    "secondaryLane": 1,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_acd700708dc515f5c63a08f8835a9941.png",
+    "inRealLogs": true,
+    "stats": [
+      3.0,
+      1.0,
+      1.0,
+      2.5,
+      1.0,
+      40.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Estes",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ff4de3b0aabd1d2f6e184db1c831f6a9.png",
+    "inRealLogs": false,
+    "stats": [
+      3.0,
+      2.0,
+      0.0,
+      1.5,
+      2.0,
+      50.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Cyclops",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_68da456f9c01b2f88d29ee320db181ed.png",
+    "inRealLogs": false,
+    "stats": [
+      2.0,
+      2.0,
+      0.0,
+      0.0,
+      1.0,
+      60.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Johnson",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_85ff988c6660b4d04f8dd3d40df988bb.png",
+    "inRealLogs": false,
+    "stats": [
+      3.0,
+      2.0,
+      2.0,
+      0.0,
+      1.0,
+      40.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Moskov",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a60a866ab6752a7f66766e720da987ea.png",
+    "inRealLogs": true,
+    "stats": [
+      5.0,
+      1.0,
+      1.0,
+      0.0,
+      2.0,
+      80.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Yi Sun-shin",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_961378be3f498d42c25b3defd1635ad1.png",
+    "inRealLogs": true,
+    "stats": [
+      4.0,
+      1.0,
+      1.0,
+      0.5,
+      3.0,
+      100.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Ruby",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4b96c75b136290576d849309722d4d20.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      2.0,
+      1.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Alpha",
+    "primaryLane": 4,
+    "secondaryLane": 1,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_86c9f91f530727db6498f920d19180d1.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      1.0,
+      1.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Sun",
+    "primaryLane": 1,
+    "secondaryLane": 4,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_117b5cdcc13232157075ce7b7f6177e9.png",
+    "inRealLogs": false,
+    "stats": [
+      1.0,
+      1.0,
+      0.0,
+      2.5,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Chou",
+    "primaryLane": 1,
+    "secondaryLane": 3,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_158209b180032c4564b8f3bde8c48888.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Kagura",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_da424b020b8ac8235d64a1b8a09aa749.png",
+    "inRealLogs": true,
+    "stats": [
+      2.0,
+      2.0,
+      1.0,
+      0.0,
+      2.0,
+      70.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Natalia",
+    "primaryLane": 4,
+    "secondaryLane": 3,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_fbb5065b6ff174d1a20ccf5b7f523514.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      0.0,
+      1.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Gord",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_47/100_9513f5e10ec33f76747732eaf2082259.png",
+    "inRealLogs": false,
+    "stats": [
+      2.0,
+      2.0,
+      1.0,
+      1.0,
+      0.0,
+      50.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Freya",
+    "primaryLane": 1,
+    "secondaryLane": 4,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18_2/100_b9c34c88762ca8e66ccd4d84071bf0bc.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      1.0,
+      0.0,
+      2.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Hayabusa",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9cc074562291a02644a0ddae28eeaa42.png",
+    "inRealLogs": true,
+    "stats": [
+      4.0,
+      1.0,
+      0.0,
+      0.5,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Lolita",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_474cea36a4bfdc7bf7d94530853a99b2.png",
+    "inRealLogs": false,
+    "stats": [
+      3.0,
+      2.0,
+      2.0,
+      1.0,
+      2.0,
+      50.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Minotaur",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3ecd2c0843df7ec85044dafff6bf4553.png",
+    "inRealLogs": true,
+    "stats": [
+      3.0,
+      2.0,
+      2.0,
+      1.0,
+      3.0,
+      60.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Layla",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b2b38e9406ea0de0b866db7674feea0f.png",
+    "inRealLogs": false,
+    "stats": [
+      5.0,
+      1.0,
+      1.0,
+      0.0,
+      1.0,
+      70.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Fanny",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3391df36d6dcc54dd1c417098e15ec59.png",
+    "inRealLogs": true,
+    "stats": [
+      4.0,
+      1.0,
+      0.0,
+      0.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Zilong",
+    "primaryLane": 1,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9db57da4f0daef6d432676e4f19101ed.png",
+    "inRealLogs": false,
+    "stats": [
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Eudora",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_60956060c4cbb86f3c6343da05b70568.png",
+    "inRealLogs": false,
+    "stats": [
+      2.0,
+      2.0,
+      1.0,
+      0.0,
+      0.0,
+      50.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Rafaela",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_68277dce415742c4a98883151c693a07.png",
+    "inRealLogs": false,
+    "stats": [
+      3.0,
+      2.0,
+      1.0,
+      1.0,
+      1.0,
+      40.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Clint",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5a8345c69a4c9c611fdfce91089fe74a.png",
+    "inRealLogs": false,
+    "stats": [
+      5.0,
+      1.0,
+      0.0,
+      0.0,
+      2.0,
+      80.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Bruno",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ff39deb9c6afec3d977fdbe9d86f78cb.png",
+    "inRealLogs": true,
+    "stats": [
+      5.0,
+      1.0,
+      1.0,
+      0.0,
+      2.0,
+      80.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Bane",
+    "primaryLane": 4,
+    "secondaryLane": 1,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_7e4e74bb161da0f477cc0d1819fa39e6.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      2.0,
+      1.0,
+      1.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Franco",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2928027062e3c2a97bc3fd4a84897012.png",
+    "inRealLogs": false,
+    "stats": [
+      3.0,
+      1.0,
+      1.0,
+      0.5,
+      1.0,
+      40.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Akai",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_28f223447f0174336ff0922d364d81d3.png",
+    "inRealLogs": true,
+    "stats": [
+      3.0,
+      1.0,
+      2.0,
+      0.0,
+      2.0,
+      50.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Karina",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f49394186dc0e55d545da8377be83280.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      0.0,
+      0.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Alucard",
+    "primaryLane": 4,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0f51b6906e08897aa02330d65b0deeac.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      0.0,
+      0.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Tigreal",
+    "primaryLane": 3,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8b30576754be1a4f8bebd09df8d6bec7.png",
+    "inRealLogs": true,
+    "stats": [
+      3.0,
+      1.0,
+      2.0,
+      0.0,
+      2.0,
+      50.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Nana",
+    "primaryLane": 2,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ee1e0d80d87bb614a0c552ef028f85ce.png",
+    "inRealLogs": false,
+    "stats": [
+      2.0,
+      2.0,
+      3.0,
+      0.0,
+      3.0,
+      80.0,
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Alice",
+    "primaryLane": 1,
+    "secondaryLane": 4,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_18300163a5a912a84adb52b8d59b4618.png",
+    "inRealLogs": true,
+    "stats": [
+      1.0,
+      2.0,
+      0.0,
+      1.5,
+      2.0,
+      60.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Saber",
+    "primaryLane": 4,
+    "secondaryLane": 3,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6bbfac806f29d29f17fea9e98d2d2fee.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      1.0,
+      1.5,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Balmond",
+    "primaryLane": 4,
+    "secondaryLane": 1,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18_2/100_df9a6990b1946d045e4d3a46c90725cf.png",
+    "inRealLogs": false,
+    "stats": [
+      4.0,
+      1.0,
+      1.0,
+      1.0,
+      2.0,
+      90.0,
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Miya",
+    "primaryLane": 5,
+    "secondaryLane": 0,
+    "iconUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_da894b37bfb5cadb32307f371f31918a.png",
+    "inRealLogs": false,
+    "stats": [
+      5.0,
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      70.0,
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  }
+]

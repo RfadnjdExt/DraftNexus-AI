@@ -1,20 +1,26 @@
 package com.draftnexus.ai
 
+import com.draftnexus.ai.core.model.*
+import com.draftnexus.ai.core.ui.DraftScreen
+import com.draftnexus.ai.feature.draft.DraftViewModel
+import com.draftnexus.ai.core.data.repository.HeroRepository
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 import android.app.Service
 import android.content.Intent
 import android.graphics.PixelFormat
-import android.os.Build
 import android.os.IBinder
 import android.view.Gravity
 import android.view.WindowManager
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.darkColorScheme
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
@@ -30,6 +36,7 @@ import androidx.savedstate.SavedStateRegistryController
 import androidx.savedstate.SavedStateRegistryOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 
+@AndroidEntryPoint
 class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStateRegistryOwner {
 
     private val lifecycleRegistry = LifecycleRegistry(this)
@@ -41,9 +48,13 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
     override val viewModelStore: ViewModelStore get() = store
 
     private lateinit var windowManager: WindowManager
-    private lateinit var composeView: ComposeView
+    private var composeView: ComposeView? = null
+    @Inject
+    lateinit var heroRepo: HeroRepository
+
     private lateinit var viewModel: DraftViewModel
     private lateinit var params: WindowManager.LayoutParams
+    private var isViewAdded = false
 
     override fun onCreate() {
         super.onCreate()
@@ -56,13 +67,25 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE)
         
         windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
-        viewModel = DraftViewModel(application)
+        viewModel = DraftViewModel(heroRepo)
 
-        composeView = ComposeView(this).apply {
+        setupOverlayView()
+        
+        lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START)
+        lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    }
+
+    private fun setupOverlayView() {
+        // Guard: don't add a duplicate view
+        if (isViewAdded) return
+
+        val view = ComposeView(this).apply {
             setViewTreeLifecycleOwner(this@OverlayService)
             setViewTreeSavedStateRegistryOwner(this@OverlayService)
             
             setContent {
+                var isMinimizedState by remember { mutableStateOf(false) }
+                
                 MaterialTheme(
                     colorScheme = darkColorScheme(
                         background = Color(0xEE1E1E1E), // More opaque background
@@ -73,46 +96,50 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
                     )
                 ) {
                     Surface(
-                        modifier = Modifier.fillMaxSize(),
-                        color = Color(0xEE1A1A1A), // Solid dark background
+                        modifier = if (isMinimizedState) Modifier.wrapContentSize() else Modifier.fillMaxSize(),
+                        color = if (isMinimizedState) Color.Transparent else Color(0xEE1A1A1A), // Transparent when minimized
                         shape = RoundedCornerShape(16.dp)
                     ) {
                         // Re-use DraftScreen. 
-                        Box(modifier = Modifier.padding(8.dp)) {
+                        val state by viewModel.uiState.collectAsState()
+                        Box(modifier = Modifier.padding(if (isMinimizedState) 0.dp else 8.dp)) {
                             DraftScreen(
-                                viewModel = viewModel,
+                                state = state,
+                                onAllySelected = viewModel::selectAlly,
+                                onEnemySelected = viewModel::selectEnemy,
+                                onClearDraft = viewModel::clearDraft,
                                 isOverlay = true,
                                 onCloseOverlay = { stopSelf() },
                                 onDrag = { dx, dy ->
                                     params.x += dx.toInt()
                                     params.y += dy.toInt()
-                                    windowManager.updateViewLayout(composeView, params)
+                                    composeView?.let { windowManager.updateViewLayout(it, params) }
                                 },
                                 onMinimizedChange = { isMinimized ->
+                                    isMinimizedState = isMinimized
                                     // Resize window based on minimized state and orientation
                                     val metrics = resources.displayMetrics
-                                    val density = metrics.density
                                     val isLandscape = resources.configuration.orientation == android.content.res.Configuration.ORIENTATION_LANDSCAPE
                                     
-                                    params.height = if (isMinimized) {
-                                        (100 * density).toInt() // Reduced to 100dp for compact minimized state
+                                    if (isMinimized) {
+                                        params.width = WindowManager.LayoutParams.WRAP_CONTENT
+                                        params.height = WindowManager.LayoutParams.WRAP_CONTENT
                                     } else {
                                         // Target height to fit 3 rows: ~350-400dp
-                                        // User Formula: (Icon(40)+Text(14)+Pad(8))*3 + Header/Tabs/Buttons(150) = ~340. Using 400 buffer.
+                                        val density = metrics.density
                                         val targetHeight = if (isLandscape) (400 * density).toInt() else (metrics.heightPixels * 0.7).toInt()
-                                        targetHeight.coerceAtMost((metrics.heightPixels * 0.95).toInt())
+                                        params.height = targetHeight.coerceAtMost((metrics.heightPixels * 0.95).toInt())
+                                        params.width = if (isLandscape) (metrics.widthPixels * 0.35).toInt() else (metrics.widthPixels * 0.9).toInt()
                                     }
-                                    windowManager.updateViewLayout(composeView, params)
+                                    composeView?.let { windowManager.updateViewLayout(it, params) }
                                 },
                                 onHeroSelectorVisibilityChange = { isVisible ->
                                     if (isVisible) {
-                                        // Enable focus for dialog interaction
                                         params.flags = params.flags and WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE.inv()
                                     } else {
-                                        // Disable focus to pass touches to underlying app
                                         params.flags = params.flags or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                                     }
-                                    windowManager.updateViewLayout(composeView, params)
+                                    composeView?.let { windowManager.updateViewLayout(it, params) }
                                 }
                             )
                         }
@@ -120,6 +147,7 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
                 }
             }
         }
+        composeView = view
 
         val layoutFlag = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
 
@@ -127,7 +155,9 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
             WindowManager.LayoutParams.MATCH_PARENT, 
             900, 
             layoutFlag,
-            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or 
+            WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or
+            WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
             PixelFormat.TRANSLUCENT
         )
         
@@ -148,14 +178,12 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
 
         try {
             android.util.Log.d("DraftNexus", "Attempting to addView to WindowManager")
-            windowManager.addView(composeView, params)
+            windowManager.addView(view, params)
+            isViewAdded = true
             android.util.Log.d("DraftNexus", "addView successful")
         } catch (e: Exception) {
             android.util.Log.e("DraftNexus", "Error adding view: ${e.message}", e)
         }
-        
-        lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START)
-        lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_RESUME)
     }
 
     private fun startForegroundServiceNotification() {
@@ -192,20 +220,25 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
         
         params.height = targetHeight
         
-        windowManager.updateViewLayout(composeView, params)
+        composeView?.let { windowManager.updateViewLayout(it, params) }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        android.util.Log.d("DraftNexus", "OverlayService onStartCommand")
-        return super.onStartCommand(intent, flags, startId)
+        android.util.Log.d("DraftNexus", "OverlayService onStartCommand (isViewAdded=$isViewAdded)")
+        if (!isViewAdded) {
+            setupOverlayView()
+        }
+        return START_NOT_STICKY
     }
 
     override fun onDestroy() {
         super.onDestroy()
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY)
         store.clear()
-        if (::composeView.isInitialized) {
+        if (isViewAdded && composeView != null) {
             windowManager.removeView(composeView)
+            composeView = null
+            isViewAdded = false
         }
     }
 

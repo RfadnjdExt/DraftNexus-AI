@@ -2,8 +2,10 @@ package com.draftnexus.ai
 
 import com.draftnexus.ai.core.model.*
 import com.draftnexus.ai.core.ui.DraftScreen
+import com.draftnexus.ai.core.domain.GetHeroesUseCase
+import com.draftnexus.ai.core.domain.GetRecommendationsUseCase
+import com.draftnexus.ai.core.domain.LoadResourcesUseCase
 import com.draftnexus.ai.feature.draft.DraftViewModel
-import com.draftnexus.ai.core.data.repository.HeroRepository
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import android.app.Service
@@ -50,7 +52,11 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
     private lateinit var windowManager: WindowManager
     private var composeView: ComposeView? = null
     @Inject
-    lateinit var heroRepo: HeroRepository
+    lateinit var getHeroesUseCase: GetHeroesUseCase
+    @Inject
+    lateinit var getRecommendationsUseCase: GetRecommendationsUseCase
+    @Inject
+    lateinit var loadResourcesUseCase: LoadResourcesUseCase
 
     private lateinit var viewModel: DraftViewModel
     private lateinit var params: WindowManager.LayoutParams
@@ -67,7 +73,7 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE)
         
         windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
-        viewModel = DraftViewModel(heroRepo)
+        viewModel = DraftViewModel(getHeroesUseCase, getRecommendationsUseCase, loadResourcesUseCase)
 
         setupOverlayView()
         

@@ -2,7 +2,9 @@ package com.draftnexus.ai.feature.draft
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.draftnexus.ai.core.data.repository.HeroRepository
+import com.draftnexus.ai.core.domain.GetHeroesUseCase
+import com.draftnexus.ai.core.domain.GetRecommendationsUseCase
+import com.draftnexus.ai.core.domain.LoadResourcesUseCase
 import com.draftnexus.ai.core.model.DraftState
 import com.draftnexus.ai.core.model.Hero
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +17,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DraftViewModel @Inject constructor(
-    private val heroRepository: HeroRepository
+    private val getHeroesUseCase: GetHeroesUseCase,
+    private val getRecommendationsUseCase: GetRecommendationsUseCase,
+    private val loadResourcesUseCase: LoadResourcesUseCase
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(DraftState())
@@ -28,7 +32,7 @@ class DraftViewModel @Inject constructor(
 
     private fun observeHeroes() {
         viewModelScope.launch {
-            heroRepository.getHeroes().collectLatest { heroList ->
+            getHeroesUseCase().collectLatest { heroList ->
                 _uiState.value = _uiState.value.copy(
                     heroes = heroList,
                     debugText = "Heroes Loaded: ${heroList.size}"
@@ -40,7 +44,7 @@ class DraftViewModel @Inject constructor(
     private fun loadResources() {
         viewModelScope.launch {
             _uiState.value = _uiState.value.copy(isLoading = true)
-            heroRepository.loadResources()
+            loadResourcesUseCase()
             _uiState.value = _uiState.value.copy(isLoading = false)
         }
     }
@@ -80,7 +84,7 @@ class DraftViewModel @Inject constructor(
                 return@launch
             }
 
-            val result = heroRepository.runInference(state.allies, state.enemies, candidates)
+            val result = getRecommendationsUseCase(state.allies, state.enemies, candidates)
             _uiState.value = _uiState.value.copy(
                 recommendations = result,
                 debugText = "Inference Done."

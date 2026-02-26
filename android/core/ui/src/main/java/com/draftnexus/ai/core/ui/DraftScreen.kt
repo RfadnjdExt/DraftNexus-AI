@@ -70,13 +70,10 @@ fun DraftScreen(
 
     Box(modifier = if (isMinimized) Modifier.wrapContentSize() else Modifier.fillMaxSize()) {
         if (isMinimized) {
-            // Minimized FAB State
+            // Minimized FAB State with larger hitbox
             Box(
                 modifier = Modifier
-                    .size(64.dp)
-                    .clip(CircleShape)
-                    .background(Color(0xFF3EA6FF)) // YouTube Action Blue
-                    .clickable { isMinimized = false }
+                    .size(96.dp) // Larger invisible hitbox for better dragging
                     .pointerInput(Unit) {
                         detectDragGestures { change, dragAmount ->
                             change.consume()
@@ -85,8 +82,17 @@ fun DraftScreen(
                     },
                 contentAlignment = Alignment.Center
             ) {
-                // DraftNexus / AI Icon
-                Text("DN", color = Color(0xFF0F0F0F), fontWeight = FontWeight.Bold, fontSize = 20.sp)
+                Box(
+                    modifier = Modifier
+                        .size(64.dp)
+                        .clip(CircleShape)
+                        .background(Color(0xFF3EA6FF)) // YouTube Action Blue
+                        .clickable { isMinimized = false },
+                    contentAlignment = Alignment.Center
+                ) {
+                    // DraftNexus / AI Icon
+                    Text("DN", color = Color(0xFF0F0F0F), fontWeight = FontWeight.Bold, fontSize = 20.sp)
+                }
             }
         } else {
             // Expanded State

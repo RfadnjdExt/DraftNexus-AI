@@ -18,6 +18,7 @@ rootProject.name = "DraftNexus-AI"
 include(":app")
 include(":core:model")
 include(":core:data")
+include(":core:domain")
 include(":core:ui")
 include(":feature:draft")
 include(":benchmark")

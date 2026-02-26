@@ -1,4 +1,4 @@
-package com.draftnexus.ai
+package com.draftnexus.ai.core.model
 
 data class Hero(
     val id: Int,

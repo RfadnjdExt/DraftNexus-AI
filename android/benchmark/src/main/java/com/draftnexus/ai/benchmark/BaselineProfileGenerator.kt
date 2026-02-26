@@ -1,0 +1,27 @@
+package com.draftnexus.ai.benchmark
+
+import androidx.benchmark.macro.junit4.BaselineProfileRule
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import org.junit.Rule
+import org.junit.Test
+import org.junit.runner.RunWith
+
+@RunWith(AndroidJUnit4::class)
+class BaselineProfileGenerator {
+    @get:Rule
+    val baselineProfileRule = BaselineProfileRule()
+
+    @Test
+    fun generate() = baselineProfileRule.collect(
+        packageName = "com.draftnexus.ai",
+        includeInStartupProfile = true
+    ) {
+        // This section defines the interactions to profile.
+        // For now, we just start the app.
+        pressHome()
+        startActivityAndWait()
+        
+        // You can add more interactions here to optimize specific paths,
+        // like scrolling or navigating to specific screens.
+    }
+}

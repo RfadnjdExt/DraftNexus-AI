@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google()
         mavenCentral()
@@ -15,3 +16,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "DraftNexus-AI"
 include(":app")
+include(":core:model")
+include(":core:data")
+include(":core:ui")
+include(":feature:draft")
+include(":benchmark")

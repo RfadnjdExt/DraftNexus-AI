@@ -60,6 +60,8 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
 
     private lateinit var viewModel: DraftViewModel
     private lateinit var params: WindowManager.LayoutParams
+    private var windowX = 0f
+    private var windowY = 0f
     private var isViewAdded = false
 
     override fun onCreate() {
@@ -117,8 +119,10 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
                                 isOverlay = true,
                                 onCloseOverlay = { stopSelf() },
                                 onDrag = { dx, dy ->
-                                    params.x += dx.toInt()
-                                    params.y += dy.toInt()
+                                    windowX += dx
+                                    windowY += dy
+                                    params.x = windowX.toInt()
+                                    params.y = windowY.toInt()
                                     composeView?.let { windowManager.updateViewLayout(it, params) }
                                 },
                                 onMinimizedChange = { isMinimized ->
@@ -137,6 +141,11 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
                                         params.height = targetHeight.coerceAtMost((metrics.heightPixels * 0.95).toInt())
                                         params.width = if (isLandscape) (metrics.widthPixels * 0.35).toInt() else (metrics.widthPixels * 0.9).toInt()
                                     }
+                                    
+                                    // Sync accumulators when window is explicitly moved/resized by system
+                                    windowX = params.x.toFloat()
+                                    windowY = params.y.toFloat()
+                                    
                                     composeView?.let { windowManager.updateViewLayout(it, params) }
                                 },
                                 onHeroSelectorVisibilityChange = { isVisible ->
@@ -158,8 +167,8 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
         val layoutFlag = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
 
         params = WindowManager.LayoutParams(
-            WindowManager.LayoutParams.MATCH_PARENT, 
-            900, 
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.WRAP_CONTENT,
             layoutFlag,
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or 
             WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or
@@ -168,6 +177,10 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
         )
         
         params.gravity = Gravity.TOP or Gravity.START
+        params.x = 0
+        params.y = 100
+        windowX = params.x.toFloat()
+        windowY = params.y.toFloat()
         
         val metrics = resources.displayMetrics
         val isLandscape = resources.configuration.orientation == android.content.res.Configuration.ORIENTATION_LANDSCAPE

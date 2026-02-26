@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.draftnexus.ai.core.model;
+
+option java_package = "com.draftnexus.ai.core.model.proto";
+option java_multiple_files = true;
+
+message HeroProto {
+  int32 id = 1;
+  string name = 2;
+  int32 primary_lane = 3;
+  int32 secondary_lane = 4;
+  string icon_url = 5;
+  bool in_real_logs = 6;
+  repeated float stats = 7;
+}
+
+message HeroListProto {
+  repeated HeroProto heroes = 1;
+}

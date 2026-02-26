@@ -1,5 +1,6 @@
 plugins {
     id("com.draftnexus.ai.android.library")
+    id("com.draftnexus.ai.android.protobuf")
 }
 
 android {

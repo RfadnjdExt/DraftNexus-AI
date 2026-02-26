@@ -9,7 +9,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.withContext
-import org.json.JSONArray
+import com.draftnexus.ai.core.model.proto.HeroListProto
+import com.draftnexus.ai.core.model.toDomain
 import ai.onnxruntime.OrtEnvironment
 import ai.onnxruntime.OrtSession
 import ai.onnxruntime.OnnxTensor
@@ -32,9 +33,10 @@ class DefaultHeroRepository @Inject constructor(
 
     override suspend fun loadResources() = withContext(Dispatchers.IO) {
         try {
-            // 1. Load Heroes JSON
-            val jsonString = context.assets.open("heroes.json").bufferedReader().use { it.readText() }
-            val heroList = parseHeroes(jsonString)
+            // 1. Load Heroes Protobuf
+            val inputStream = context.assets.open("heroes.pb")
+            val heroListProto = HeroListProto.parseFrom(inputStream)
+            val heroList = heroListProto.heroesList.map { it.toDomain() }.sortedBy { it.name }
             _heroes.value = heroList
             
             // 2. Load ONNX Model
@@ -46,33 +48,6 @@ class DefaultHeroRepository @Inject constructor(
         }
     }
 
-    private fun parseHeroes(json: String): List<Hero> {
-        val list = mutableListOf<Hero>()
-        try {
-            val array = JSONArray(json)
-            for (i in 0 until array.length()) {
-                val obj = array.getJSONObject(i)
-                val statsJson = obj.getJSONArray("stats")
-                val stats = FloatArray(statsJson.length())
-                for (j in 0 until statsJson.length()) {
-                    stats[j] = statsJson.getDouble(j).toFloat()
-                }
-                
-                list.add(Hero(
-                    id = obj.getInt("id"),
-                    name = obj.getString("name"),
-                    primaryLane = obj.getInt("primaryLane"),
-                    secondaryLane = obj.getInt("secondaryLane"),
-                    iconUrl = obj.getString("iconUrl"),
-                    inRealLogs = obj.optBoolean("inRealLogs", true),
-                    stats = stats
-                ))
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return list.sortedBy { it.name }
-    }
 
     override suspend fun runInference(
         allies: List<Hero?>,

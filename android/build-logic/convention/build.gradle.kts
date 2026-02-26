@@ -15,6 +15,7 @@ dependencies {
     compileOnly(libs.ksp.gradlePlugin)
     compileOnly(libs.compose.compiler.gradlePlugin)
     compileOnly(libs.baselineprofile.gradlePlugin)
+    implementation(libs.protobuf.gradlePlugin)
 }
 
 gradlePlugin {
@@ -42,6 +43,10 @@ gradlePlugin {
         register("androidTest") {
             id = "com.draftnexus.ai.android.test"
             implementationClass = "com.draftnexus.ai.convention.AndroidTestConventionPlugin"
+        }
+        register("androidProtobuf") {
+            id = "com.draftnexus.ai.android.protobuf"
+            implementationClass = "com.draftnexus.ai.convention.AndroidProtobufConventionPlugin"
         }
     }
 }

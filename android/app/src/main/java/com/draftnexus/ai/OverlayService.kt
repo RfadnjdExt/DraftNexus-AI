@@ -63,6 +63,7 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
     private var windowX = 0f
     private var windowY = 0f
     private var isViewAdded = false
+    private var isMinimizedState = false
 
     override fun onCreate() {
         super.onCreate()
@@ -132,8 +133,13 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
                                             isOverlay = true,
                                             onCloseOverlay = { stopSelf() },
                                             onDrag = { dx, dy ->
-                                                windowX += dx
-                                                windowY += dy
+                                                val metrics = resources.displayMetrics
+                                                val maxX = (metrics.widthPixels - params.width).coerceAtLeast(0)
+                                                val maxY = (metrics.heightPixels - params.height).coerceAtLeast(0)
+
+                                                windowX = (windowX + dx).coerceIn(0f, maxX.toFloat())
+                                                windowY = (windowY + dy).coerceIn(0f, maxY.toFloat())
+                                                
                                                 params.x = windowX.toInt()
                                                 params.y = windowY.toInt()
                                                 composeView?.let {
@@ -142,6 +148,7 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
                                             },
                                             onMinimizedChange = { isMinimized ->
                                                 isMinimizedState = isMinimized
+                                                this@OverlayService.isMinimizedState = isMinimized
                                                 // Resize window based on minimized state and
                                                 // orientation
                                                 val metrics = resources.displayMetrics
@@ -285,19 +292,32 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
         val isLandscape =
                 newConfig.orientation == android.content.res.Configuration.ORIENTATION_LANDSCAPE
 
-        // Update width/height based on orientation
-        // Update width/height based on orientation
-        // Width: 1/3 screen (approx 35%) in Landscape
-        params.width =
-                if (isLandscape) (metrics.widthPixels * 0.35).toInt()
-                else (metrics.widthPixels * 0.9).toInt()
+        if (isMinimizedState) {
+            // Keep the floating button size exactly 64dp
+            val px = (64 * metrics.density).toInt()
+            params.width = px
+            params.height = px
+        } else {
+            // Expanded width: 1/3 screen (approx 35%) in Landscape
+            params.width =
+                    if (isLandscape) (metrics.widthPixels * 0.35).toInt()
+                    else (metrics.widthPixels * 0.9).toInt()
 
-        // Height: Maximize vertical space (95%) in Landscape
-        val targetHeight =
-                if (isLandscape) (metrics.heightPixels * 0.95).toInt()
-                else (metrics.heightPixels * 0.7).toInt()
+            // Expanded height: Maximize vertical space (95%) in Landscape
+            val targetHeight =
+                    if (isLandscape) (metrics.heightPixels * 0.95).toInt()
+                    else (metrics.heightPixels * 0.7).toInt()
 
-        params.height = targetHeight
+            params.height = targetHeight
+        }
+
+        // Clamp window coordinates to ensure they don't overflow after screen rotation
+        val maxX = (metrics.widthPixels - params.width).coerceAtLeast(0)
+        val maxY = (metrics.heightPixels - params.height).coerceAtLeast(0)
+        windowX = windowX.coerceIn(0f, maxX.toFloat())
+        windowY = windowY.coerceIn(0f, maxY.toFloat())
+        params.x = windowX.toInt()
+        params.y = windowY.toInt()
 
         composeView?.let { windowManager.updateViewLayout(it, params) }
     }

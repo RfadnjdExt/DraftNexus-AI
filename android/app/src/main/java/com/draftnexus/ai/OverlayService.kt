@@ -151,7 +151,8 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
                                                                         .ORIENTATION_LANDSCAPE
 
                                                 if (isMinimized) {
-                                                    val px = (96 * metrics.density).toInt()
+                                                    // Floating button size is exactly 64dp
+                                                    val px = (64 * metrics.density).toInt()
                                                     params.width = px
                                                     params.height = px
                                                 } else {

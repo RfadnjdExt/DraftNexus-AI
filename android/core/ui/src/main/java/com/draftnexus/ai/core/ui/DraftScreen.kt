@@ -3,7 +3,6 @@ package com.draftnexus.ai.core.ui
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
-import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
@@ -21,8 +20,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.input.pointer.pointerInteropFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
@@ -31,6 +31,59 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.draftnexus.ai.core.model.*
+import kotlin.math.abs
+
+import androidx.compose.ui.composed
+import androidx.compose.ui.input.pointer.pointerInteropFilter
+
+@OptIn(ExperimentalComposeUiApi::class)
+fun Modifier.windowDragGestures(
+    onDrag: (dx: Float, dy: Float) -> Unit,
+    onTap: (() -> Unit)? = null
+): Modifier = composed {
+    var rawStartX by remember { mutableFloatStateOf(0f) }
+    var rawStartY by remember { mutableFloatStateOf(0f) }
+    var lastRawX by remember { mutableFloatStateOf(0f) }
+    var lastRawY by remember { mutableFloatStateOf(0f) }
+    var isDragging by remember { mutableStateOf(false) }
+
+    this.pointerInteropFilter { event ->
+        when (event.actionMasked) {
+            android.view.MotionEvent.ACTION_DOWN -> {
+                rawStartX = event.rawX
+                rawStartY = event.rawY
+                lastRawX = event.rawX
+                lastRawY = event.rawY
+                isDragging = false
+                true
+            }
+            android.view.MotionEvent.ACTION_MOVE -> {
+                val dx = event.rawX - lastRawX
+                val dy = event.rawY - lastRawY
+                
+                // Threshold to prevent tap jitter
+                if (!isDragging && (abs(event.rawX - rawStartX) > 10f || abs(event.rawY - rawStartY) > 10f)) {
+                    isDragging = true
+                }
+                
+                if (isDragging) {
+                    onDrag(dx, dy)
+                    lastRawX = event.rawX
+                    lastRawY = event.rawY
+                }
+                true
+            }
+            android.view.MotionEvent.ACTION_UP, android.view.MotionEvent.ACTION_CANCEL -> {
+                if (!isDragging) {
+                    onTap?.invoke()
+                }
+                isDragging = false
+                true
+            }
+            else -> false
+        }
+    }
+}
 
 @Composable
 fun DraftScreen(
@@ -70,29 +123,20 @@ fun DraftScreen(
 
     Box(modifier = if (isMinimized) Modifier.wrapContentSize() else Modifier.fillMaxSize()) {
         if (isMinimized) {
-            // Minimized FAB State with larger hitbox
+            // Minimized FAB State matches its visual size (64dp) exactly
             Box(
                 modifier = Modifier
-                    .size(96.dp) // Larger invisible hitbox for better dragging
-                    .pointerInput(Unit) {
-                        detectDragGestures { change, dragAmount ->
-                            change.consume()
-                            onDrag?.invoke(dragAmount.x, dragAmount.y)
-                        }
-                    },
+                    .size(64.dp)
+                    .clip(CircleShape)
+                    .background(Color(0xFF3EA6FF)) // YouTube Action Blue
+                    .windowDragGestures(
+                        onDrag = { dx, dy -> onDrag?.invoke(dx, dy) },
+                        onTap = { isMinimized = false }
+                    ),
                 contentAlignment = Alignment.Center
             ) {
-                Box(
-                    modifier = Modifier
-                        .size(64.dp)
-                        .clip(CircleShape)
-                        .background(Color(0xFF3EA6FF)) // YouTube Action Blue
-                        .clickable { isMinimized = false },
-                    contentAlignment = Alignment.Center
-                ) {
-                    // DraftNexus / AI Icon
-                    Text("DN", color = Color(0xFF0F0F0F), fontWeight = FontWeight.Bold, fontSize = 20.sp)
-                }
+                // DraftNexus / AI Icon
+                Text("DN", color = Color(0xFF0F0F0F), fontWeight = FontWeight.Bold, fontSize = 20.sp)
             }
         } else {
             // Expanded State
@@ -106,12 +150,9 @@ fun DraftScreen(
                         .padding(top = 16.dp)
                         .height(28.dp)
                         .background(Color(0xFF555555), RoundedCornerShape(4.dp))
-                        .pointerInput(Unit) {
-                            detectDragGestures { change, dragAmount ->
-                                change.consume()
-                                onDrag?.invoke(dragAmount.x, dragAmount.y)
-                            }
-                        },
+                        .windowDragGestures(
+                            onDrag = { dx, dy -> onDrag?.invoke(dx, dy) }
+                        ),
                     contentAlignment = Alignment.Center
                 ) {
                     Text("══ DRAG ══", color = Color.LightGray, fontSize = 11.sp, fontWeight = FontWeight.Bold)

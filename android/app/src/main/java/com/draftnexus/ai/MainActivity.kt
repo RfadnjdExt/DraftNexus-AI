@@ -48,6 +48,7 @@ class MainActivity : ComponentActivity() {
                         state = state,
                         onAllySelected = viewModel::selectAlly,
                         onEnemySelected = viewModel::selectEnemy,
+                        onBanSelected = viewModel::selectBan,
                         onClearDraft = viewModel::clearDraft
                     )
                 }
@@ -61,6 +62,7 @@ fun PermissionLauncherScreen(
     state: DraftState,
     onAllySelected: (Int, Hero?) -> Unit,
     onEnemySelected: (Int, Hero?) -> Unit,
+    onBanSelected: (Int, Hero?) -> Unit,
     onClearDraft: () -> Unit
 ) {
     val context = LocalContext.current
@@ -98,6 +100,7 @@ fun PermissionLauncherScreen(
             state = state,
             onAllySelected = onAllySelected,
             onEnemySelected = onEnemySelected,
+            onBanSelected = onBanSelected,
             onClearDraft = onClearDraft
         )
     } else {

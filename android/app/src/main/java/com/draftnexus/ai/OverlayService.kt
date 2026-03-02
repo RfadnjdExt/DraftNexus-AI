@@ -129,6 +129,7 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
                                             state = state,
                                             onAllySelected = viewModel::selectAlly,
                                             onEnemySelected = viewModel::selectEnemy,
+                                            onBanSelected = viewModel::selectBan,
                                             onClearDraft = viewModel::clearDraft,
                                             isOverlay = true,
                                             onCloseOverlay = { stopSelf() },

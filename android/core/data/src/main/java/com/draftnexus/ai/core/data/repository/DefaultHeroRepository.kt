@@ -90,14 +90,24 @@ class DefaultHeroRepository @Inject constructor(
                 recs.add(Recommendation(h, score, role))
             }
             
-            val groupedRecs = recs
-                .groupBy { it.role }
-                .mapValues { (_, v) -> v.sortedByDescending { it.score }.take(5) }
+            val groupedRecs = mutableMapOf<String, MutableList<Recommendation>>()
+            for (rec in recs) {
+                val h = rec.hero
+                // Add to primary lane
+                val primaryRole = mapRole(h.primaryLane)
+                groupedRecs.getOrPut(primaryRole) { mutableListOf() }.add(Recommendation(h, rec.score, primaryRole))
+                // Also add to secondary lane if it exists and differs
+                if (h.secondaryLane > 0 && h.secondaryLane != h.primaryLane) {
+                    val secondaryRole = mapRole(h.secondaryLane)
+                    groupedRecs.getOrPut(secondaryRole) { mutableListOf() }.add(Recommendation(h, rec.score, secondaryRole))
+                }
+            }
+            val sortedRecs = groupedRecs.mapValues { (_, v) -> v.sortedByDescending { it.score }.take(5) }
             
             result.close()
             tensor.close()
             
-            return@withContext groupedRecs
+            return@withContext sortedRecs
         } catch (e: Exception) {
             e.printStackTrace()
             return@withContext emptyMap()

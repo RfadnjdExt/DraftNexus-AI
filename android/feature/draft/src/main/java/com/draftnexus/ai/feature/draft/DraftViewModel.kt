@@ -63,10 +63,18 @@ class DraftViewModel @Inject constructor(
         runInference()
     }
     
+    fun selectBan(index: Int, hero: Hero?) {
+        val newList = _uiState.value.bans.toMutableList()
+        newList[index] = hero
+        _uiState.value = _uiState.value.copy(bans = newList)
+        runInference()
+    }
+    
     fun clearDraft() {
         _uiState.value = _uiState.value.copy(
             allies = List(5) { null },
             enemies = List(5) { null },
+            bans = List(10) { null },
             recommendations = emptyMap(),
             debugText = "Draft Cleared"
         )
@@ -76,7 +84,7 @@ class DraftViewModel @Inject constructor(
         val state = _uiState.value
         viewModelScope.launch {
             val candidates = state.heroes.filter { h -> 
-                h !in state.allies && h !in state.enemies && h.inRealLogs
+                h !in state.allies && h !in state.enemies && h !in state.bans && h.inRealLogs
             }
 
             if (candidates.isEmpty()) {

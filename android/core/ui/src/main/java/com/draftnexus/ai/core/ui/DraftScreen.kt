@@ -171,16 +171,18 @@ fun DraftScreen(
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = if (isCompactChrome) 8.dp else 16.dp)
-                            .padding(top = if (isCompactChrome) 4.dp else 16.dp)
-                            .height(if (isCompactChrome) 18.dp else 28.dp)
-                            .background(Color(0xFF555555), RoundedCornerShape(4.dp))
+                            .padding(top = if (isCompactChrome) 4.dp else 8.dp, bottom = if (isCompactChrome) 2.dp else 4.dp)
                             .windowDragGestures(
                                 onDrag = { dx, dy -> onDrag?.invoke(dx, dy) }
                             ),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text("══ DRAG ══", color = Color.LightGray, fontSize = if (isCompactChrome) 8.sp else 11.sp, fontWeight = FontWeight.Bold)
+                        Box(
+                            modifier = Modifier
+                                .width(32.dp)
+                                .height(4.dp)
+                                .background(Color(0xFF555555), RoundedCornerShape(2.dp))
+                        )
                     }
                 }
             

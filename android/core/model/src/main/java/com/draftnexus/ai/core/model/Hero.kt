@@ -1,5 +1,8 @@
 package com.draftnexus.ai.core.model
 
+import androidx.compose.runtime.Stable
+
+@Stable
 data class Hero(
     val id: Int,
     val name: String,

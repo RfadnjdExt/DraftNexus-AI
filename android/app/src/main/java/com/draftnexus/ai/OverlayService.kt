@@ -32,7 +32,6 @@ import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import com.draftnexus.ai.core.domain.GetHeroesUseCase
 import com.draftnexus.ai.core.domain.GetRecommendationsUseCase
 import com.draftnexus.ai.core.domain.LoadResourcesUseCase
-import com.draftnexus.ai.core.model.*
 import com.draftnexus.ai.core.ui.DraftScreen
 import com.draftnexus.ai.feature.draft.DraftViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -76,8 +75,9 @@ class OverlayService : Service(), LifecycleOwner, ViewModelStoreOwner, SavedStat
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE)
 
         windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
-        viewModel =
-                DraftViewModel(getHeroesUseCase, getRecommendationsUseCase, loadResourcesUseCase)
+        // Hilt @Inject fields are populated by this point (after super.onCreate)
+        // Note: ViewModelProvider doesn't support Hilt in Services, only Activities/Fragments
+        viewModel = DraftViewModel(getHeroesUseCase, getRecommendationsUseCase, loadResourcesUseCase)
 
         setupOverlayView()
 
